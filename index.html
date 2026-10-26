@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="description" content="Requirements decomposition for RFP S-3 BASINLINK & BASINCAST: mission objectives down to Level 4." />
+  <title>S-3 Requirements</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230A0A0A' stroke='%23CFB991' stroke-width='2'/%3E%3Cpath d='M9 22V10M9 16h7M16 16V12h7M16 16v6h7' fill='none' stroke='%237FCBEA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="app" data-view="outline">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div class="brand-text">
+          <span class="brand-kicker">Congo River Basin · RFP S-3</span>
+          <span class="brand-title">Requirements</span>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="View">
+        <span class="tabs-ink"></span>
+        <button role="tab" data-view="outline">Outline</button>
+        <button role="tab" data-view="tree">Thread tree</button>
+        <button role="tab" data-view="radial">Radial</button>
+        <button role="tab" data-view="matrix">Matrix</button>
+        <button role="tab" data-view="graph">Graph</button>
+        <button role="tab" data-view="baselines">Baselines</button>
+      </nav>
+      <div class="top-right">
+        <span class="save-state" id="save-state" aria-live="polite"></span>
+        <button class="icon-btn" data-act="present" title="Presenter mode (P)" aria-label="Presenter mode" aria-pressed="false"></button>
+        <button class="icon-btn" data-act="fullscreen" title="Fullscreen (F)" aria-label="Fullscreen"></button>
+      </div>
+    </header>
+
+    <div class="toolbar" id="toolbar"></div>
+    <main class="stage" id="stage"></main>
+    <aside class="panel glass" id="panel" aria-label="Requirement details"></aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
