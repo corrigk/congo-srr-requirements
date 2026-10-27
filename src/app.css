@@ -221,3 +221,24 @@ select option { background: #15171a; }
   .brand-text, .tb-legend { display: none; }
   .bl-wrap { grid-template-columns: 1fr; }
 }
+
+/* ---------- thread tree: direction, depth, folded branches, segment focus ---------- */
+.gv-ctl { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: calc(100% - 24px); }
+.gv-seg { display: flex; align-items: center; gap: 2px; padding: 2px; border-radius: 9px; border: 1px solid var(--line); background: rgba(12,13,15,.85); }
+.gv-seg span { padding: 0 6px 0 8px; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+.gv-seg button { padding: 4px 9px; font-size: 12px; border-radius: 7px; color: var(--muted); white-space: nowrap; }
+.gv-seg button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+.gv-seg button:not([aria-pressed="true"]):hover { background: rgba(255,255,255,.07); color: var(--text); }
+.gv-ctl .btn-ghost { background: rgba(12,13,15,.85); padding: 5px 10px; }
+.gv-focusbar { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; padding: 6px 8px 6px 14px;
+  border-radius: 11px; border: 1px solid var(--river); background: rgba(12,13,15,.92); font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.gv-focusbar b { color: var(--river); font-weight: 600; }
+.gv-more { cursor: pointer; transition: opacity .25s; }
+.gv-more rect { fill: #1c1e22; stroke: var(--gold); stroke-width: 1.2; }
+.gv-more text { font-size: 11px; font-weight: 600; fill: var(--gold); }
+.gv-more:hover rect, .gv-more:focus-visible rect { fill: var(--gold); }
+.gv-more:hover text, .gv-more:focus-visible text { fill: var(--ink); }
+.gv-more:focus-visible { outline: none; }
+.gv-more.is-dim { opacity: .2; }
+@media (max-width: 760px) { .gv-focusbar { white-space: normal; flex-wrap: wrap; width: calc(100% - 24px); } }
+.gv-node.is-ctx, .gv-more.is-ctx { opacity: .5; }

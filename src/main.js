@@ -17,7 +17,11 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const app = $('#app'), stage = $('#stage'), panel = $('#panel');
 
-const state = { data: null, model: null, view: 'outline', selected: null, colorBy: 'mo', segs: new Set(), search: '', present: false, zoom: {} };
+// Thread tree: dir 'auto' | 'h' (across) | 'v' (down), remembered on this computer; depth null = all levels;
+// expanded = folded branches opened by hand.
+const savedDir = (() => { try { return localStorage.getItem('req-tree-dir') || 'auto'; } catch { return 'auto'; } })();
+const state = { data: null, model: null, view: 'outline', selected: null, colorBy: 'mo', segs: new Set(), search: '', present: false, zoom: {},
+  dir: savedDir, depth: null, expanded: new Set() };
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
 // ---------- data ----------
@@ -125,7 +129,7 @@ function moveInk() {
 document.fonts?.ready.then(() => moveInk()); // tab widths change once Inter has loaded
 addEventListener('resize', () => { moveInk(); if (['tree', 'radial', 'graph'].includes(state.view)) render(); });
 
-// ---------- routing: #view/ID?seg=Space,Ground&color=segment (deep links for presenting) ----------
+// ---------- routing: #view/ID?seg=Space,Ground&color=segment&depth=2&dir=v (deep links for presenting) ----------
 function readHash() {
   const [path, query = ''] = location.hash.slice(1).split('?');
   const [view, id] = path.split('/');
@@ -134,11 +138,15 @@ function readHash() {
   const p = new URLSearchParams(query);
   state.segs = new Set((p.get('seg') || '').split(',').filter(s => SEGMENTS.includes(s)));
   if (COLOR_BY[p.get('color')]) state.colorBy = p.get('color');
+  state.depth = +p.get('depth') || null;
+  if (['h', 'v'].includes(p.get('dir'))) state.dir = p.get('dir');
 }
 function writeHash() {
   const p = new URLSearchParams();
   if (state.segs.size) p.set('seg', [...state.segs].join(','));
   if (state.colorBy !== 'mo') p.set('color', state.colorBy);
+  if (state.depth) p.set('depth', state.depth);
+  if (state.dir !== 'auto') p.set('dir', state.dir);
   const h = `#${state.view}${state.selected ? `/${encodeURIComponent(state.selected)}` : ''}${p.size ? `?${p}` : ''}`;
   if (location.hash !== h) history.replaceState(null, '', h);
 }
@@ -146,18 +154,24 @@ addEventListener('hashchange', () => { readHash(); render(); });
 
 // ---------- actions ----------
 function select(id) { state.selected = id && state.selected === id ? null : id; render(); }
+function toggleBranch(id) { state.expanded.has(id) ? state.expanded.delete(id) : state.expanded.add(id); render(); }
 function setView(v) { if (VIEWS[v]) { state.view = v; render(); } }
 function setPresent(on) { state.present = on; app.classList.toggle('is-present', on); $('[data-act="present"]').setAttribute('aria-pressed', on); render(); }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-view], [data-act], [data-seg], [data-select]');
+  const t = e.target.closest('[data-view], [data-act], [data-seg], [data-select], [data-expand], [data-tree-dir], [data-tree-depth], [data-tree-fold]');
   if (!t) return;
   const d = t.dataset;
   if (d.view && t.closest('.tabs')) return setView(d.view);
   if (d.seg) { state.segs.has(d.seg) ? state.segs.delete(d.seg) : state.segs.add(d.seg); return render(); }
   if (d.select) return select(d.select);
+  if (d.expand) return toggleBranch(d.expand);
+  if (d.treeDir) { state.dir = d.treeDir; try { localStorage.setItem('req-tree-dir', d.treeDir); } catch { /* no memory */ } return render(); }
+  if (d.treeDepth) { state.depth = d.treeDepth === 'all' ? null : +d.treeDepth; state.expanded.clear(); return render(); }
+  if ('treeFold' in d) { state.expanded.clear(); return render(); }
   switch (d.act) {
     case 'clear': state.selected = null; return render();
+    case 'seg-clear': state.segs.clear(); return render();
     case 'present': return setPresent(!state.present);
     case 'fullscreen': return document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.();
     case 'checks': state.view = 'outline'; state.showChecks = true; return render();
@@ -180,6 +194,7 @@ document.addEventListener('input', e => {
 document.addEventListener('keydown', e => {
   // Enter / Space on a focused block in the SVG views selects it, like a click.
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('g[data-select]')) { e.preventDefault(); return select(e.target.dataset.select); }
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches?.('g[data-expand]')) { e.preventDefault(); return toggleBranch(e.target.dataset.expand); }
   if (e.target.closest('input, textarea, select, [contenteditable]') || e.ctrlKey || e.metaKey || e.altKey) return;
   const k = e.key.toLowerCase();
   if (/^[1-6]$/.test(k)) setView(NAMES[+k - 1]);

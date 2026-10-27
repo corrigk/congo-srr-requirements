@@ -20,7 +20,7 @@ npm start          # opens http://localhost:5180
 | View (key) | What it shows |
 | --- | --- |
 | Outline (1) | The whole decomposition as an indented list. The editor lives here. |
-| Thread tree (2) | Left to right, L0 → L4. Click a block to light its full thread, up and down. |
+| Thread tree (2) | Across (L0 left → L4 right) or down (L0 top, leaf siblings stacked under their parent); **Auto** picks whichever fills the screen. **Depth** (L1 … All) folds everything deeper into **+N** badges: click one to open that branch, **−** to fold it. Choosing segments in the toolbar turns the tree into a **focus view**: only those requirements and the parents above them, with **Show all** to zoom back out. Click a block to light its full thread, up and down. |
 | Radial (3) | MOs in the centre, one ring per level: the whole decomposition in one picture. |
 | Matrix (4) | Every requirement against its parents, verification method, segment or status. Gaps are flagged. |
 | Graph (5) | Force-directed web of every requirement and link. Drag nodes around. |
@@ -41,7 +41,7 @@ npm start          # opens http://localhost:5180
 
 **Presenting:** `P` toggles presenter mode (larger, higher contrast, no editing controls). Segment buttons
 (Space, Ground, Air, Launch, …) dim everything outside those segments. Links remember the view, selection and filters,
-so a slide can open straight to a thread: `…/#tree/L1-2.3?seg=Space,Ground`.
+so a slide can open straight to a thread: `…/#tree/L1-2.3?seg=Space,Ground`. Tree options go in the link too: `depth=2`, `dir=h` (across) or `dir=v` (down), e.g. `…/#tree?seg=Ground&depth=2`.
 
 ## Where the data lives
 
