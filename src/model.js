@@ -4,13 +4,13 @@
 // Shared by the local editor, the static site, and (later) the SRR page's Decomposition tab.
 
 export const LEVEL_MAX = 4;
-export const SEGMENTS = ['Space', 'Ground', 'Air', 'Launch', 'User equipment', 'Operations', 'System'];
+export const SEGMENTS = ['Space', 'Ground', 'Air', 'Launch', 'User equipment', 'System'];
 export const STATUSES = ['draft', 'agreed', 'TBR', 'TBD'];
 export const VERIFICATION = [
   { k: 'I', name: 'Inspection' }, { k: 'A', name: 'Analysis' }, { k: 'D', name: 'Demonstration' }, { k: 'T', name: 'Test' },
 ];
 export const SOURCES = ['mission', 'RFP', 'derived', 'interface'];
-export const FIELDS = ['name', 'statement', 'threshold', 'objective', 'rationale', 'source', 'verification', 'verNote', 'segment', 'owner', 'status', 'example'];
+export const FIELDS = ['name', 'statement', 'threshold', 'objective', 'rationale', 'source', 'verification', 'verNote', 'segment', 'owner', 'status', 'example', 'fn'];
 
 export function build(snapshot) {
   const reqs = snapshot.reqs.map(r => ({ ...r }));
@@ -58,7 +58,21 @@ export function build(snapshot) {
   const ancestors = id => walk(id, x => ups.get(x) || []);
   const descendants = id => walk(id, x => kids.get(x) || []);
 
+  // Functions (F1–F8 of the functional flow): a requirement's own tags, else inherited from its parents.
+  const fnAll = new Map();
+  const fnOf = id => {
+    if (fnAll.has(id)) return fnAll.get(id);
+    fnAll.set(id, []); // guards against cycles in hand-edited data
+    const r = byId.get(id), own = r.type === 'mo' ? [] : [...new Set(r.fn || [])];
+    const v = own.length ? own : [...new Set(ups.get(id).flatMap(p => (byId.get(p).type === 'mo' ? [] : fnOf(p))))];
+    fnAll.set(id, v.sort());
+    return fnAll.get(id);
+  };
+
   for (const r of reqs) {
+    r.fnOwn = r.type === 'mo' ? [] : [...new Set(r.fn || [])].sort();
+    r.fnAll = fnOf(r.id);
+    r.fnInherited = !r.fnOwn.length && r.fnAll.length > 0;
     r.level = level.get(r.id) ?? null;
     r.outline = outline.get(r.id) ?? '';
     r.parents = ups.get(r.id);
@@ -88,6 +102,7 @@ export function checks(m) {
     if (!r.statement?.trim()) out.push({ id: r.id, kind: 'statement', severity: 'error', text: 'No "shall" statement' });
     else if (!/\bshall\b/i.test(r.statement)) out.push({ id: r.id, kind: 'shall', severity: 'warn', text: 'Statement has no "shall"' });
     if (!r.verification) out.push({ id: r.id, kind: 'verification', severity: 'warn', text: 'No verification method' });
+    if (r.level === 1 && !r.fnAll.length) out.push({ id: r.id, kind: 'function', severity: 'warn', text: 'Not traced to a function (F1–F8)' });
     if (r.level != null && r.level > LEVEL_MAX) out.push({ id: r.id, kind: 'deep', severity: 'warn', text: `Level ${r.level}: deeper than Level ${LEVEL_MAX}` });
     if (r.status === 'TBD' || r.status === 'TBR') out.push({ id: r.id, kind: 'open', severity: 'info', text: `Marked ${r.status}` });
     if (r.example) out.push({ id: r.id, kind: 'example', severity: 'info', text: 'Example requirement: edit or delete' });

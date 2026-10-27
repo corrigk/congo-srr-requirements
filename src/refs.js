@@ -7,7 +7,7 @@ export const COLOR_BY = { mo: 'Mission objective', segment: 'Segment', status: '
 
 const PALETTE = {
   mo: { 'MO-1': 'data', 'MO-2': 'alert', 'MO-3': 'river' },
-  segment: { Space: 'gold', Ground: 'river', Air: 'precip', Launch: 'rust-hi', 'User equipment': 'data', Operations: 'pink', System: 'paper' },
+  segment: { Space: 'gold', Ground: 'river', Air: 'precip', Launch: 'rust-hi', 'User equipment': 'data', System: 'paper' },
   status: { draft: 'muted', agreed: 'data', TBR: 'alert', TBD: 'rust-hi' },
   verification: { I: 'precip', A: 'river', D: 'alert', T: 'data' },
 };

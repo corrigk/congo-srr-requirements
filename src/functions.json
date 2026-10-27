@@ -1,0 +1,53 @@
+{
+  "source": "congo-river-basin-SRR analysis/data/functions.json",
+  "functions": [
+    {
+      "id": "F1",
+      "name": "DETECT",
+      "label": "Detect rising water",
+      "description": "A sensor, tag, ranger device or partner system detects an event that crosses a threshold and forms a short, time-stamped priority message."
+    },
+    {
+      "id": "F2",
+      "name": "TRANSMIT to satellite",
+      "label": "Transmit to satellite",
+      "description": "The terminal sends the message to a satellite overhead, directly or through the nearest ranger-station tower when it sits under canopy."
+    },
+    {
+      "id": "F3",
+      "name": "SEND to database",
+      "label": "Send to database",
+      "description": "The satellite downlinks to the nearest gateway; the regional database stores it, filters duplicates and forwards it to the Kinshasa hub, where it appears on the common operating picture (COP). Each node keeps a replica."
+    },
+    {
+      "id": "F4",
+      "name": "PROCESS, evaluate threat",
+      "label": "Process, evaluate threat",
+      "description": "Hub analysts and models fuse the event with other data (radar, weather, history) and decide whether it is a threat, where, and who is at risk."
+    },
+    {
+      "id": "F5",
+      "name": "AUTHORIZE",
+      "label": "Authorize",
+      "description": "The responsible national agency approves the alert and issues it as a CAP message. S-3 never decides; it only carries."
+    },
+    {
+      "id": "F6",
+      "name": "RETRANSMIT to satellite",
+      "label": "Retransmit to satellite",
+      "description": "The hub validates the CAP message, converts it to speech in the district's languages, sets the geo-target area and uplinks it to the broadcast satellite."
+    },
+    {
+      "id": "F7",
+      "name": "SEND to outposts",
+      "label": "Send to outposts",
+      "description": "Community receivers and ranger-station loudspeakers inside the target area wake up and play the alert aloud; ranger terminals get the text."
+    },
+    {
+      "id": "F8",
+      "name": "VERIFICATION",
+      "label": "Verification",
+      "description": "Ranger stations confirm the alert was heard (receiver check-ins, patrols, the tower loudspeaker) and report ground truth; the acknowledgment returns over the satellite link and closes the loop to F4."
+    }
+  ]
+}

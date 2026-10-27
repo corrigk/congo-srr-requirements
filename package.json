@@ -8,7 +8,8 @@
     "start": "vite --open",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:functions": "node scripts/sync-functions.mjs"
   },
   "devDependencies": {
     "vite": "^8.3.5"

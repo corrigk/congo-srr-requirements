@@ -39,10 +39,11 @@ const V_W = 196, V_COL = 214, V_ROW = 70, V_STACK = 31, V_INDENT = 18;
 function visibleTree(m, ctx, { pinned = true } = {}) {
   const st = ctx.state, limit = st.depth ?? Infinity;
   const moIds = m.mos.map(x => x.id);
+  const roots = moIds.filter(id => !ctx.mo || id === ctx.mo);
   let keep = null;
-  if (st.segs.size) {
-    keep = new Set(moIds);
-    for (const r of m.reqs) if (st.segs.has(r.segment)) for (let id = r.id; id && !keep.has(id); id = m.primary.get(id)) keep.add(id);
+  if (ctx.scoped) {
+    keep = new Set(roots);
+    for (const r of m.reqs) if (r.type !== 'mo' && ctx.inScope(r)) for (let id = r.id; id && !keep.has(id); id = m.primary.get(id)) keep.add(id);
   }
   const kids = id => m.childrenOf(id).filter(c => m.primary.get(c) === id && (!keep || keep.has(c)));
   const below = new Map();
@@ -55,8 +56,8 @@ function visibleTree(m, ctx, { pinned = true } = {}) {
     if (!open(id, depth)) { hidden.set(id, count(id)); return { id }; }
     return { id, children: k.map(c => node(c, depth + 1)) };
   };
-  const data = { id: '__root', children: moIds.filter(id => !keep || keep.has(id)).map(id => node(id, 0)) };
-  const shown = keep ? m.reqs.filter(r => r.type !== 'mo' && st.segs.has(r.segment)).length : null;
+  const data = { id: '__root', children: roots.filter(id => !keep || keep.has(id)).map(id => node(id, 0)) };
+  const shown = keep ? m.reqs.filter(r => r.type !== 'mo' && ctx.inScope(r)).length : null;
   return { data, hidden, keep, shown };
 }
 
@@ -133,7 +134,7 @@ export const tree = {
       if (sel && k < 0.75 && !ctx.fitAll) return zoomIdentity.translate(W / 2 - (sel.x + sel.w / 2) * 0.75, H / 2 - sel.y * 0.75).scale(0.75);
       return zoomIdentity.translate((W - (e.x1 - e.x0) * k) / 2 - e.x0 * k, (H - (e.y1 - e.y0) * k) / 2 - e.y0 * k + 30).scale(k);
     };
-    const key = `tree:${L.dir}:${st.depth ?? 'all'}:${[...st.segs].join(',')}`;
+    const key = `tree:${L.dir}:${st.depth ?? 'all'}:${ctx.scopeKey}`;
     const { g } = canvas(el, ctx, key, fit, 'Thread tree');
 
     // Level labels over each column (across). Down, stacked leaves share rows with the next level, so only the
@@ -158,7 +159,7 @@ export const tree = {
     ];
     // In a segment focus the parents above the chosen requirements are context: half strength, not dimmed away.
     const plainFocus = vis.keep && !ctx.focus && !st.search.trim();
-    const isCtx = id => vis.keep && m.get(id).type !== 'mo' && !st.segs.has(m.get(id).segment) && (!ctx.focus || ctx.focus.has(id));
+    const isCtx = id => vis.keep && m.get(id).type !== 'mo' && !ctx.inScope(m.get(id)) && (!ctx.focus || ctx.focus.has(id));
     g.append('g').selectAll('path').data(all).join('path')
       .attr('class', l => `gv-link${l.extra ? ' is-extra' : ''}${ctx.filtered && !lit(ctx, l.parent, l.child) && !plainFocus ? ' is-dim' : ''}${ctx.focus && lit(ctx, l.parent, l.child) ? ' is-hot' : ''}`)
       .attr('stroke', l => ctx.color(m.get(l.child))).attr('d', edge);
@@ -197,9 +198,9 @@ export const tree = {
       ${st.expanded.size ? '<button class="btn btn-ghost" data-tree-fold>Fold opened branches</button>' : ''}
     </div>`);
     if (vis.keep) {
-      el.insertAdjacentHTML('beforeend', `<div class="gv-focusbar" role="status"><span>Focus: <b>${ctx.esc([...st.segs].join(', '))}</b></span>
+      el.insertAdjacentHTML('beforeend', `<div class="gv-focusbar" role="status"><span>Focus: <b>${ctx.esc(ctx.scopeLabel)}</b></span>
         <span>${vis.shown} of ${m.reqs.filter(r => r.type !== 'mo').length} requirements, with the parents above them</span>
-        <button class="btn btn-ghost" data-act="seg-clear">Show all</button></div>`);
+        <button class="btn btn-ghost" data-act="scope-clear">Show all</button></div>`);
     }
     if (m.orphans.length) el.insertAdjacentHTML('beforeend', `<div class="gv-note">${m.orphans.length} not connected: see the Outline</div>`);
   },

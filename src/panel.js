@@ -1,6 +1,7 @@
 // Side panel for the selected requirement: an edit form in the local editor, read-only details on the static site.
 import { SEGMENTS, STATUSES, VERIFICATION, SOURCES } from './model.js';
 import { SRR_REFS, srrRef } from './refs.js';
+import { FUNCTIONS, fnBy } from './functions.js';
 import { ICON } from './icons.js';
 
 const vName = Object.fromEntries(VERIFICATION.map(v => [v.k, v.name]));
@@ -30,6 +31,12 @@ export function renderPanel(el, ctx) {
     <div class="p-h">Children <small>${r.children.length || ''}</small></div>
     <div class="p-chips">${r.children.map(chip).join('') || '<span class="p-none">None yet</span>'}</div>
     ${ctx.readonly ? '' : `<button class="p-btn" data-act-p="add-child">${ICON.plus} Add a child requirement</button>`}`;
+  // Functional flow: this requirement's own tags, or (dashed) the ones inherited from its parent.
+  const fnChip = (id, own) => `<span class="pc-wrap"><span class="pc fc${own ? '' : ' is-inh'}" title="${esc(fnBy[id]?.description || '')}"><b>${esc(id)}</b><span>${esc(fnBy[id]?.title || '')}</span></span>${own && !ctx.readonly ? `<button class="pc-x" data-unfn="${esc(id)}" aria-label="Remove ${esc(id)}" title="Remove this function">${ICON.close}</button>` : ''}</span>`;
+  const fnSec = r.type === 'mo' ? '' : `
+    <div class="p-h">Functional flow <small>${r.fnInherited ? 'inherited from the parent; adding one keeps these' : ''}</small></div>
+    <div class="p-chips">${(r.fnOwn.length ? r.fnOwn : r.fnAll).map(id => fnChip(id, !!r.fnOwn.length)).join('') || '<span class="p-none">Not traced to a function</span>'}</div>
+    ${ctx.readonly ? '' : `<select class="p-add" data-add="fn"><option value="">+ Trace to a function…</option>${FUNCTIONS.filter(f => !(r.fnOwn.length ? r.fnOwn : r.fnAll).includes(f.id)).map(f => `<option value="${f.id}">${f.id} · ${esc(f.title)}</option>`).join('')}</select>`}`;
   const srr = `
     <div class="p-h">On the SRR page</div>
     <div class="p-chips">${(r.srr || []).map(x => { const ref = srrRef(x.kind, x.ref); return `<span class="pc-wrap"><a class="pc pc-ext" href="${ref.url}" target="_blank" rel="noopener">${ICON.external}<span>${esc(ref.label)}</span></a>${ctx.readonly ? '' : `<button class="pc-x" data-unsrr="${esc(x.kind)}:${esc(x.ref)}" aria-label="Remove link">${ICON.close}</button>`}</span>`; }).join('') || '<span class="p-none">No links</span>'}</div>
@@ -42,7 +49,7 @@ export function renderPanel(el, ctx) {
       ${r.threshold || r.objective ? `<div class="p-tv"><div><span>Threshold</span><p>${esc(r.threshold || '—')}</p></div><div><span>Objective</span><p>${esc(r.objective || '—')}</p></div></div>` : ''}
       ${row('Rationale', r.rationale)}${row('Source', r.source)}${row('Verification', r.verification && `${vName[r.verification]}${r.verNote ? ` · ${r.verNote}` : ''}`)}
       ${row('Segment', r.segment)}${row('Owner', r.owner)}${row('Status', r.status)}
-      ${lists}${srr}</div>`;
+      ${fnSec}${lists}${srr}</div>`;
     return;
   }
 
@@ -64,7 +71,7 @@ export function renderPanel(el, ctx) {
       <div class="p-row"><label class="p-field"><span>Source</span><input data-field="source" list="sources" value="${esc(r.source || '')}" /><datalist id="sources">${SOURCES.map(s => `<option value="${s}">`).join('')}</datalist></label>
         <label class="p-check"><input type="checkbox" data-field="example" ${r.example ? 'checked' : ''} /> Example (placeholder)</label></div>`}
     </div>
-    ${lists}${srr}
+    ${fnSec}${lists}${srr}
     ${r.type === 'mo' ? '' : `<button class="p-btn p-del" data-act-p="delete">${ICON.trash} Delete ${esc(r.id)}</button>`}
   </div>`;
 
@@ -88,6 +95,8 @@ export function bindPanel(el, getCtx) {
         await ctx.api('req', { req: { id: r.id, [t.dataset.field]: t.type === 'checkbox' ? t.checked : t.value } });
       } else if (t.dataset.add === 'parent' && t.value) {
         await ctx.api('link', { parent: t.value, child: r.id });
+      } else if (t.dataset.add === 'fn' && t.value) {
+        await ctx.api('req', { req: { id: r.id, fn: [...new Set([...(r.fnOwn.length ? r.fnOwn : r.fnAll), t.value])] } });
       } else if (t.dataset.add === 'srr' && t.value) {
         const [kind, ref] = t.value.split(':');
         await ctx.api('req', { req: { id: r.id, srr: [...(r.srr || []), { kind, ref }] } });
@@ -96,9 +105,10 @@ export function bindPanel(el, getCtx) {
   });
   el.addEventListener('click', async e => {
     const ctx = getCtx(), r = ctx.model.get(ctx.state.selected);
-    const t = e.target.closest('[data-unlink], [data-unsrr], [data-act-p]');
+    const t = e.target.closest('[data-unlink], [data-unsrr], [data-unfn], [data-act-p]');
     if (!t || !r || ctx.readonly) return;
     if (t.dataset.unlink) return ctx.api('unlink', { parent: t.dataset.unlink, child: r.id });
+    if (t.dataset.unfn) return ctx.api('req', { req: { id: r.id, fn: r.fnOwn.filter(f => f !== t.dataset.unfn) } });
     if (t.dataset.unsrr) {
       const [kind, ref] = t.dataset.unsrr.split(':');
       return ctx.api('req', { req: { id: r.id, srr: (r.srr || []).filter(x => !(x.kind === kind && x.ref === ref)) } });

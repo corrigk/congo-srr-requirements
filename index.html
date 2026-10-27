@@ -24,6 +24,7 @@
         <button role="tab" data-view="tree">Thread tree</button>
         <button role="tab" data-view="radial">Radial</button>
         <button role="tab" data-view="matrix">Matrix</button>
+        <button role="tab" data-view="table">Table</button>
         <button role="tab" data-view="graph">Graph</button>
         <button role="tab" data-view="baselines">Baselines</button>
       </nav>
@@ -35,8 +36,10 @@
     </header>
 
     <div class="toolbar" id="toolbar"></div>
+    <section class="strip" id="strip" aria-label="Summary" hidden></section>
     <main class="stage" id="stage"></main>
     <aside class="panel glass" id="panel" aria-label="Requirement details"></aside>
+    <dialog class="glass" id="fn-dialog" aria-label="Trace L1 requirements to the functional flow"></dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
   <script type="module" src="/src/main.js"></script>

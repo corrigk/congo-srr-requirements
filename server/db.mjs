@@ -9,7 +9,7 @@ import path from 'node:path';
 import { SEED } from './seed.mjs';
 import { build } from '../src/model.js';
 
-const COLS = ['type', 'sort', 'name', 'statement', 'threshold', 'objective', 'rationale', 'source', 'verification', 'verNote', 'segment', 'owner', 'status', 'example', 'srr'];
+const COLS = ['type', 'sort', 'name', 'statement', 'threshold', 'objective', 'rationale', 'source', 'verification', 'verNote', 'segment', 'owner', 'status', 'example', 'srr', 'fn'];
 const ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$/;
 
 export function openStore(root) {
@@ -26,12 +26,14 @@ export function openStore(root) {
     CREATE TABLE IF NOT EXISTS req (
       id TEXT PRIMARY KEY, type TEXT NOT NULL DEFAULT 'req', sort INTEGER, name TEXT, statement TEXT, threshold TEXT,
       objective TEXT, rationale TEXT, source TEXT, verification TEXT, verNote TEXT, segment TEXT, owner TEXT,
-      status TEXT, example INTEGER NOT NULL DEFAULT 0, srr TEXT NOT NULL DEFAULT '[]');
+      status TEXT, example INTEGER NOT NULL DEFAULT 0, srr TEXT NOT NULL DEFAULT '[]', fn TEXT NOT NULL DEFAULT '[]');
     CREATE TABLE IF NOT EXISTS link (
       parent TEXT NOT NULL REFERENCES req(id) ON UPDATE CASCADE ON DELETE CASCADE,
       child TEXT NOT NULL REFERENCES req(id) ON UPDATE CASCADE ON DELETE CASCADE,
       ord REAL NOT NULL, PRIMARY KEY (parent, child));
     PRAGMA foreign_keys = ON;`);
+  // Databases made before the functional-flow trace had no fn column.
+  if (!db.prepare('PRAGMA table_info(req)').all().some(c => c.name === 'fn')) db.exec("ALTER TABLE req ADD COLUMN fn TEXT NOT NULL DEFAULT '[]'");
 
   // ---------- read / write whole snapshots ----------
   const rowToReq = r => {
@@ -40,6 +42,8 @@ export function openStore(root) {
     o.example = !!r.example;
     o.srr = JSON.parse(r.srr || '[]');
     if (!o.srr.length) delete o.srr;
+    o.fn = JSON.parse(r.fn || '[]');
+    if (!o.fn.length) delete o.fn;
     if (!o.example) delete o.example;
     return o;
   };
@@ -50,7 +54,7 @@ export function openStore(root) {
   }
   const insertReq = db.prepare(`INSERT INTO req (id, ${COLS.join(', ')}) VALUES (?, ${COLS.map(() => '?').join(', ')})
     ON CONFLICT(id) DO UPDATE SET ${COLS.map(c => `${c} = excluded.${c}`).join(', ')}`);
-  const reqValues = r => [r.id, ...COLS.map(c => (c === 'srr' ? JSON.stringify(r.srr || []) : c === 'example' ? (r.example ? 1 : 0) : r[c] ?? null))];
+  const reqValues = r => [r.id, ...COLS.map(c => (c === 'srr' || c === 'fn' ? JSON.stringify(r[c] || []) : c === 'example' ? (r.example ? 1 : 0) : r[c] ?? null))];
   function load(snap) {
     db.exec('BEGIN');
     try {

@@ -1,6 +1,7 @@
 // Traceability matrix: every requirement (rows, in outline order) against parents, verification, segment or status.
 // Rows with nothing in the chosen dimension are flagged: orphans, unverified, unallocated, no status.
 import { SEGMENTS, STATUSES, VERIFICATION, short } from '../model.js';
+import { FUNCTIONS } from '../functions.js';
 
 let mode = 'parents', bound = false, ctxRef = null;
 
@@ -14,26 +15,28 @@ export function render(el, ctx) {
     verification: VERIFICATION.map(v => ({ k: v.k, label: v.k, sub: v.name })),
     segment: SEGMENTS.map(s => ({ k: s, label: s, sub: '' })),
     status: STATUSES.map(s => ({ k: s, label: s, sub: '' })),
+    function: FUNCTIONS.map(f => ({ k: f.id, label: f.id, sub: `${f.id} ${f.title}` })),
   }[mode];
   const anc = new Map(rows.map(id => [id, m.ancestors(id)]));
   const cell = (id, c) => {
     const r = m.get(id);
+    if (mode === 'function') return r.fnOwn.includes(c.k) ? '<i class="mx-dot" title="Tagged on this requirement"></i>' : r.fnAll.includes(c.k) ? '<i class="mx-ring" title="Inherited from a parent"></i>' : '';
     if (mode === 'parents') return r.parents.includes(c.k) ? '<i class="mx-dot" title="Direct parent"></i>' : anc.get(id).has(c.k) ? '<i class="mx-ring" title="Traces up through another requirement"></i>' : '';
     const v = mode === 'verification' ? r.verification : mode === 'segment' ? r.segment : r.status;
     return v === c.k ? '<i class="mx-dot"></i>' : '';
   };
   const gap = id => {
     const r = m.get(id);
-    return mode === 'parents' ? !r.parents.length : mode === 'verification' ? !r.verification : mode === 'segment' ? !r.segment : !r.status;
+    return mode === 'function' ? !r.fnAll.length : mode === 'parents' ? !r.parents.length : mode === 'verification' ? !r.verification : mode === 'segment' ? !r.segment : !r.status;
   };
   const gaps = rows.filter(gap).length;
   el.innerHTML = `
     <div class="mx-wrap">
       <div class="mx-bar">
         <div class="seg-btns" role="group" aria-label="Columns">
-          ${[['parents', 'Parents (L0–L1)'], ['verification', 'Verification'], ['segment', 'Segment'], ['status', 'Status']].map(([k, t]) => `<button data-mx="${k}" aria-pressed="${k === mode}">${t}</button>`).join('')}
+          ${[['parents', 'Parents (L0–L1)'], ['verification', 'Verification'], ['segment', 'Segment'], ['status', 'Status'], ['function', 'Function']].map(([k, t]) => `<button data-mx="${k}" aria-pressed="${k === mode}">${t}</button>`).join('')}
         </div>
-        <span class="mx-sum">${rows.length} requirements · <b class="${gaps ? 'is-warn' : ''}">${gaps} without ${mode === 'parents' ? 'a parent' : `a ${mode}`}</b>${mode === 'parents' ? ' · <i class="mx-dot"></i> direct parent · <i class="mx-ring"></i> traces up through another requirement' : ''}</span>
+        <span class="mx-sum">${rows.length} requirements · <b class="${gaps ? 'is-warn' : ''}">${gaps} without ${mode === 'parents' ? 'a parent' : `a ${mode}`}</b>${mode === 'parents' ? ' · <i class="mx-dot"></i> direct parent · <i class="mx-ring"></i> traces up through another requirement' : mode === 'function' ? ' · <i class="mx-dot"></i> tagged here · <i class="mx-ring"></i> inherited from a parent' : ''}</span>
       </div>
       <div class="mx-scroll">
         <table class="mx" style="--cols:${cols.length}">

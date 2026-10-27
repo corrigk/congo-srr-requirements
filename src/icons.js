@@ -10,5 +10,6 @@ export const ICON = {
   present: svg('<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/>'),
   expand: svg('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),
   external: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/>'),
+  download: svg('<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>'),
   flag: svg('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>'),
 };
