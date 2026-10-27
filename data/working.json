@@ -28,7 +28,8 @@
       "segment": "System",
       "status": "draft",
       "fn": [
-        "F2"
+        "F2",
+        "F3"
       ]
     },
     {
@@ -87,7 +88,8 @@
       "segment": "System",
       "status": "draft",
       "fn": [
-        "F1"
+        "F1",
+        "F2"
       ]
     },
     {
@@ -102,7 +104,8 @@
       "segment": "System",
       "status": "draft",
       "fn": [
-        "F1"
+        "F2",
+        "F3"
       ]
     },
     {
@@ -130,7 +133,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L1-2.1",
@@ -142,7 +149,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L1-2.2",
@@ -154,7 +164,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L1-2.3",
@@ -166,7 +180,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L1-2.4",
@@ -178,7 +195,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L1-2.5",
@@ -190,7 +210,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L1-2.6",
@@ -202,7 +226,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L1-2.7",
@@ -214,7 +241,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L1-2.8",
@@ -226,7 +256,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L1-3.1",
@@ -238,7 +272,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L1-3.2",
@@ -250,7 +288,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L1-3.3",
@@ -262,7 +304,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L1-3.4",
@@ -274,7 +320,12 @@
       "source": "derived",
       "verification": "Distress message payload and maximum delivery time TBR",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L1-3.5",
@@ -286,7 +337,11 @@
       "source": "derived",
       "verification": "Update interval and location accuracy TBR",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L1-3.6",
@@ -298,7 +353,11 @@
       "source": "derived",
       "verification": "Status reporting deadline and semantics TBR",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L1-3.7",
@@ -310,7 +369,12 @@
       "source": "derived",
       "verification": "Distress queue precedes routine traffic under contention",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L1-3.8",
@@ -322,7 +386,11 @@
       "source": "derived",
       "verification": "Coverage and terminal movement conditions TBR",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-1.1.1",
@@ -334,7 +402,11 @@
       "rationale": "Defines the geographical boundaries of the communications network.",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L2-1.1.2",
@@ -353,6 +425,10 @@
           "kind": "srr-req",
           "ref": "S3-02"
         }
+      ],
+      "fn": [
+        "F1",
+        "F2"
       ]
     },
     {
@@ -365,7 +441,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L2-1.2.1",
@@ -377,7 +456,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.2.2",
@@ -389,7 +472,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.2.3",
@@ -408,6 +495,10 @@
           "kind": "srr-req",
           "ref": "S3-03"
         }
+      ],
+      "fn": [
+        "F2",
+        "F3"
       ]
     },
     {
@@ -427,6 +518,9 @@
           "kind": "srr-req",
           "ref": "S3-04"
         }
+      ],
+      "fn": [
+        "F1"
       ]
     },
     {
@@ -439,7 +533,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L2-1.3.3",
@@ -451,7 +548,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L2-1.4.1",
@@ -463,7 +563,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.4.2",
@@ -475,7 +578,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.4.3",
@@ -487,7 +593,10 @@
       "source": "derived",
       "verification": "I",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.4.4",
@@ -499,7 +608,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.5.1",
@@ -511,7 +623,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.5.2",
@@ -523,7 +638,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.5.3",
@@ -535,7 +653,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.6.1",
@@ -547,7 +668,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L2-1.6.2",
@@ -559,7 +684,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L2-1.6.3",
@@ -571,7 +700,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L2-1.7.1",
@@ -583,7 +716,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.7.2",
@@ -595,7 +732,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.7.3",
@@ -607,7 +748,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.8.1",
@@ -619,7 +764,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.8.2",
@@ -631,7 +779,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.8.3",
@@ -643,7 +794,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L2-1.9.1",
@@ -655,7 +809,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.9.2",
@@ -667,7 +825,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L2-1.9.3",
@@ -679,7 +840,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L2-1.9.4",
@@ -691,7 +855,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-1.9.5",
@@ -703,7 +871,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L2-2.1.1",
@@ -715,7 +887,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.1.2",
@@ -727,7 +902,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.1.3",
@@ -739,7 +917,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.2.1",
@@ -751,7 +932,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-2.2.2",
@@ -763,7 +948,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-2.2.3",
@@ -775,7 +964,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-2.3.1",
@@ -787,7 +980,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L2-2.3.2",
@@ -799,7 +995,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L2-2.3.3",
@@ -811,7 +1010,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L2-2.4.1",
@@ -823,7 +1025,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L2-2.4.2",
@@ -835,7 +1040,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L2-2.4.3",
@@ -847,7 +1055,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L2-2.4.4",
@@ -859,7 +1070,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L2-2.5.1",
@@ -871,7 +1085,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-2.5.2",
@@ -883,7 +1101,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-2.6.1",
@@ -895,7 +1117,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.6.2",
@@ -907,7 +1132,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.6.3",
@@ -919,7 +1147,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L2-2.7.1",
@@ -931,7 +1162,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L2-2.7.2",
@@ -943,7 +1177,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L2-2.7.3",
@@ -955,7 +1192,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L2-2.8.1",
@@ -967,7 +1207,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-2.8.2",
@@ -979,7 +1223,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-2.8.3",
@@ -991,7 +1239,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L2-3.1.1",
@@ -1003,7 +1255,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.1.2",
@@ -1015,7 +1271,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.1.3",
@@ -1027,7 +1287,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.1.4",
@@ -1039,7 +1303,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.2.1",
@@ -1051,7 +1319,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.2.2",
@@ -1063,7 +1335,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.2.3",
@@ -1075,7 +1351,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.2.4",
@@ -1087,7 +1367,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.3.1",
@@ -1099,7 +1383,11 @@
       "source": "derived",
       "verification": "D",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.3.2",
@@ -1111,7 +1399,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.3.3",
@@ -1123,7 +1415,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.3.4",
@@ -1135,7 +1431,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.4.1",
@@ -1147,7 +1447,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.4.2",
@@ -1159,7 +1464,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.4.3",
@@ -1171,7 +1481,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.5.1",
@@ -1183,7 +1498,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.5.2",
@@ -1195,7 +1514,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.5.3",
@@ -1207,7 +1530,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.6.1",
@@ -1219,7 +1546,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.6.2",
@@ -1231,7 +1562,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.7.1",
@@ -1243,7 +1578,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.7.2",
@@ -1255,7 +1595,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L2-3.8.1",
@@ -1267,7 +1612,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-3.8.2",
@@ -1279,7 +1628,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L2-AIR-RELAY",
@@ -1297,6 +1650,10 @@
           "kind": "interface",
           "ref": "A-1"
         }
+      ],
+      "fn": [
+        "F6",
+        "F7"
       ]
     },
     {
@@ -1316,6 +1673,9 @@
           "kind": "srr-req",
           "ref": "S3-05"
         }
+      ],
+      "fn": [
+        "F7"
       ]
     },
     {
@@ -1335,6 +1695,10 @@
           "kind": "srr-req",
           "ref": "S3-06"
         }
+      ],
+      "fn": [
+        "F6",
+        "F7"
       ]
     },
     {
@@ -1354,6 +1718,9 @@
           "kind": "srr-req",
           "ref": "S3-07"
         }
+      ],
+      "fn": [
+        "F7"
       ]
     },
     {
@@ -1373,6 +1740,10 @@
           "kind": "srr-req",
           "ref": "S3-08"
         }
+      ],
+      "fn": [
+        "F6",
+        "F7"
       ]
     },
     {
@@ -1392,6 +1763,10 @@
           "kind": "srr-req",
           "ref": "S3-09"
         }
+      ],
+      "fn": [
+        "F7",
+        "F8"
       ]
     },
     {
@@ -1411,6 +1786,10 @@
           "kind": "srr-req",
           "ref": "S3-10"
         }
+      ],
+      "fn": [
+        "F2",
+        "F6"
       ]
     },
     {
@@ -1423,7 +1802,10 @@
       "source": "derived",
       "verification": "I",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.1.1.2",
@@ -1435,7 +1817,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.1.2.1",
@@ -1447,7 +1833,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.1.2.2",
@@ -1459,7 +1848,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.1.2.3",
@@ -1471,7 +1863,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.1.3.1",
@@ -1483,7 +1878,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.1.3.2",
@@ -1495,7 +1893,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.2.1.1",
@@ -1507,7 +1908,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.2.1.2",
@@ -1519,7 +1924,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.2.2.1",
@@ -1531,7 +1940,11 @@
       "source": "derived",
       "verification": "I",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.2.2.2",
@@ -1543,7 +1956,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.2.3.1",
@@ -1555,7 +1972,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.2.3.2",
@@ -1567,7 +1988,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.3.1.1",
@@ -1579,7 +2004,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.3.1.2",
@@ -1591,7 +2019,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.3.2.1",
@@ -1603,7 +2034,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.3.2.2",
@@ -1615,7 +2049,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.3.3.1",
@@ -1627,7 +2065,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.3.3.2",
@@ -1639,7 +2081,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L3-1.4.1.1",
@@ -1651,7 +2096,10 @@
       "source": "derived",
       "verification": "I",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.1.2",
@@ -1663,7 +2111,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.2.1",
@@ -1675,7 +2126,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.2.2",
@@ -1687,7 +2141,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.3.1",
@@ -1699,7 +2156,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.3.2",
@@ -1711,7 +2171,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.4.1",
@@ -1723,7 +2186,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.4.4.2",
@@ -1735,7 +2201,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.1.1",
@@ -1747,7 +2216,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.1.2",
@@ -1759,7 +2231,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.2.1",
@@ -1771,7 +2246,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.2.2",
@@ -1783,7 +2261,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.3.1",
@@ -1795,7 +2276,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.5.3.2",
@@ -1807,7 +2291,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.6.1.1",
@@ -1819,7 +2306,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.6.1.2",
@@ -1831,7 +2322,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.6.2.1",
@@ -1843,7 +2338,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.6.2.2",
@@ -1855,7 +2354,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.6.3.1",
@@ -1867,7 +2370,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.6.3.2",
@@ -1879,7 +2386,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L3-1.7.1.1",
@@ -1891,7 +2402,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.1.2",
@@ -1903,7 +2418,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.2.1",
@@ -1915,7 +2434,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.2.2",
@@ -1927,7 +2450,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.2.3",
@@ -1939,7 +2466,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.3.1",
@@ -1951,7 +2482,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.7.3.2",
@@ -1963,7 +2498,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.1.1",
@@ -1975,7 +2514,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.1.2",
@@ -1987,7 +2529,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.2.1",
@@ -1999,7 +2544,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.2.2",
@@ -2011,7 +2559,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.3.1",
@@ -2023,7 +2574,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.8.3.2",
@@ -2035,7 +2589,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.1.1",
@@ -2047,7 +2604,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.1.2",
@@ -2059,7 +2620,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.2.1",
@@ -2071,7 +2636,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.2.2",
@@ -2083,7 +2651,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.3.1",
@@ -2095,7 +2666,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.3.2",
@@ -2107,7 +2681,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.3.3",
@@ -2119,7 +2697,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.3.4",
@@ -2131,7 +2712,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.3.5",
@@ -2143,7 +2728,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.4.1",
@@ -2155,7 +2744,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.4.2",
@@ -2167,7 +2760,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-1.9.5.1",
@@ -2179,7 +2776,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.5.2",
@@ -2191,7 +2791,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.5.3",
@@ -2203,7 +2806,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.5.4",
@@ -2215,7 +2821,10 @@
       "source": "derived",
       "verification": "I",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L3-1.9.5.5",
@@ -2227,7 +2836,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L3-2.1.1.1",
@@ -2239,7 +2852,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.1.1.2",
@@ -2251,7 +2867,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.1.2.1",
@@ -2263,7 +2882,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.1.2.2",
@@ -2275,7 +2898,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.1.3.1",
@@ -2287,7 +2914,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.1.3.2",
@@ -2299,7 +2929,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.1.1",
@@ -2311,7 +2944,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.1.2",
@@ -2323,7 +2960,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.2.1",
@@ -2335,7 +2976,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.2.2",
@@ -2347,7 +2992,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.3.1",
@@ -2359,7 +3008,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.2.3.2",
@@ -2371,7 +3024,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.3.1.1",
@@ -2383,7 +3040,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.1.2",
@@ -2395,7 +3055,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.1.3",
@@ -2407,7 +3070,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.1",
@@ -2419,14 +3085,20 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.2",
       "type": "req",
       "name": "Loudspeaker",
       "statement": "The community receiver shall reproduce received emergency alerts through an integrated loudspeaker.",
-      "source": "derived"
+      "source": "derived",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.3",
@@ -2437,7 +3109,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.4",
@@ -2448,7 +3123,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.5",
@@ -2459,7 +3137,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.2.6",
@@ -2471,7 +3152,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.3.1",
@@ -2483,7 +3167,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.3.2",
@@ -2495,7 +3182,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.3.3.3",
@@ -2507,7 +3197,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-2.4.1.1",
@@ -2519,7 +3212,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.1.2",
@@ -2531,7 +3227,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.2.1",
@@ -2543,7 +3242,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.2.2",
@@ -2555,7 +3257,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.3.1",
@@ -2567,7 +3272,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.3.2",
@@ -2579,7 +3287,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.4.1",
@@ -2591,7 +3302,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.4.4.2",
@@ -2603,7 +3317,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L3-2.5.1.1",
@@ -2615,7 +3332,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.5.1.2",
@@ -2627,7 +3348,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.5.2.1",
@@ -2639,7 +3364,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.5.2.2",
@@ -2651,7 +3380,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-2.6.1.1",
@@ -2663,7 +3396,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.6.1.2",
@@ -2675,7 +3411,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.6.2.1",
@@ -2687,7 +3426,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.6.2.2",
@@ -2699,7 +3441,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.6.3.1",
@@ -2711,7 +3456,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.6.3.2",
@@ -2723,7 +3471,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F5"
+      ]
     },
     {
       "id": "L3-2.7.1.1",
@@ -2735,7 +3486,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.7.1.2",
@@ -2747,7 +3501,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.7.2.1",
@@ -2759,7 +3516,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.7.2.2",
@@ -2771,7 +3531,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.7.3.1",
@@ -2783,7 +3546,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.7.3.2",
@@ -2795,7 +3561,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6"
+      ]
     },
     {
       "id": "L3-2.8.1.1",
@@ -2807,7 +3576,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.8.1.2",
@@ -2819,7 +3592,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.8.2.1",
@@ -2831,7 +3608,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.8.2.2",
@@ -2843,7 +3624,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.8.3.1",
@@ -2855,7 +3640,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-2.8.3.2",
@@ -2867,7 +3656,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F4",
+        "F5"
+      ]
     },
     {
       "id": "L3-3.1.1.1",
@@ -2879,7 +3672,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.1.2",
@@ -2891,7 +3688,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.2.1",
@@ -2903,7 +3704,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.2.2",
@@ -2915,7 +3720,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.3.1",
@@ -2927,7 +3736,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.3.2",
@@ -2939,7 +3752,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.4.1",
@@ -2951,7 +3768,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.1.4.2",
@@ -2963,7 +3784,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.2.1.1",
@@ -2975,7 +3800,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.1.2",
@@ -2987,7 +3816,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.2.1",
@@ -2999,7 +3832,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.2.2",
@@ -3011,7 +3848,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.3.1",
@@ -3023,7 +3864,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.3.2",
@@ -3035,7 +3880,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.4.1",
@@ -3047,7 +3896,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.2.4.2",
@@ -3059,7 +3912,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.3.1.1",
@@ -3071,7 +3928,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.1.2",
@@ -3083,7 +3944,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.2.1",
@@ -3095,7 +3960,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Space",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.2.2",
@@ -3107,7 +3976,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.2.3",
@@ -3119,7 +3992,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.3.1",
@@ -3131,7 +4008,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.3.2",
@@ -3143,7 +4024,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.4.1",
@@ -3155,7 +4040,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.4.2",
@@ -3167,7 +4056,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.4.3",
@@ -3179,7 +4072,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.3.4.4",
@@ -3191,7 +4088,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.4.1.1",
@@ -3203,7 +4104,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.4.1.2",
@@ -3215,7 +4121,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.4.2.1",
@@ -3227,7 +4138,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.4.2.2",
@@ -3239,7 +4155,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.4.3.1",
@@ -3251,7 +4172,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.4.3.2",
@@ -3263,7 +4189,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.1.1",
@@ -3275,7 +4206,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.1.2",
@@ -3287,7 +4222,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.2.1",
@@ -3299,7 +4238,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.2.2",
@@ -3311,7 +4254,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.3.1",
@@ -3323,7 +4270,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.5.3.2",
@@ -3335,7 +4286,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.6.1.1",
@@ -3347,7 +4302,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.6.1.2",
@@ -3359,7 +4318,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.6.2.1",
@@ -3371,7 +4334,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.6.2.2",
@@ -3383,7 +4350,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.7.1.1",
@@ -3395,7 +4366,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.7.1.2",
@@ -3407,7 +4383,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.7.2.1",
@@ -3419,7 +4400,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.7.2.2",
@@ -3431,7 +4417,12 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-3.8.1.1",
@@ -3443,7 +4434,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.8.1.2",
@@ -3455,7 +4450,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.8.2.1",
@@ -3467,7 +4466,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-3.8.2.2",
@@ -3479,7 +4482,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-ALERT-GND",
@@ -3497,6 +4504,9 @@
           "kind": "scenario",
           "ref": "A4"
         }
+      ],
+      "fn": [
+        "F5"
       ]
     },
     {
@@ -3509,7 +4519,10 @@
       "verification": "D",
       "segment": "User equipment",
       "status": "TBR",
-      "example": true
+      "example": true,
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-ALERT-SPC",
@@ -3531,6 +4544,9 @@
           "kind": "trade",
           "ref": "receiver"
         }
+      ],
+      "fn": [
+        "F7"
       ]
     },
     {
@@ -3549,6 +4565,10 @@
           "kind": "trade",
           "ref": "orbit"
         }
+      ],
+      "fn": [
+        "F2",
+        "F6"
       ]
     },
     {
@@ -3561,7 +4581,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-05.2",
@@ -3573,7 +4596,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-06.1",
@@ -3585,7 +4611,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-06.2",
@@ -3597,7 +4627,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-07.1",
@@ -3609,7 +4643,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-07.2",
@@ -3621,7 +4658,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-08.1",
@@ -3633,7 +4673,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-08.2",
@@ -3645,7 +4689,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L3-S3-09.1",
@@ -3657,7 +4705,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-S3-09.2",
@@ -3669,7 +4721,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7",
+        "F8"
+      ]
     },
     {
       "id": "L3-S3-10.1",
@@ -3681,7 +4737,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F6"
+      ]
     },
     {
       "id": "L3-S3-10.2",
@@ -3693,7 +4753,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F6"
+      ]
     },
     {
       "id": "L4-1.1.2.3.1",
@@ -3705,7 +4769,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L4-1.3.2.1.1",
@@ -3717,7 +4784,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L4-1.3.2.2.1",
@@ -3729,7 +4799,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L4-1.3.3.1.1",
@@ -3741,7 +4814,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L4-1.6.2.1.1",
@@ -3753,7 +4830,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L4-1.6.2.2.1",
@@ -3765,7 +4846,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F1",
+        "F2"
+      ]
     },
     {
       "id": "L4-1.7.2.1.1",
@@ -3777,7 +4862,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.7.2.2.1",
@@ -3789,7 +4878,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.7.2.3.1",
@@ -3801,7 +4894,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.2.1.1",
@@ -3813,7 +4910,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.2.1.2",
@@ -3825,7 +4925,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.2.2.1",
@@ -3837,7 +4940,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.3.2.1",
@@ -3849,7 +4955,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.3.3.1",
@@ -3861,7 +4971,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.3.3.2",
@@ -3873,7 +4986,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.3.3.3",
@@ -3885,7 +5001,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.3.4.1",
@@ -3897,7 +5016,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.3.4.2",
@@ -3909,7 +5032,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.3.4.3",
@@ -3921,7 +5048,11 @@
       "source": "derived",
       "verification": "I",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.3.5.1",
@@ -3933,7 +5064,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.5.3.1",
@@ -3945,7 +5079,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.5.3.2",
@@ -3957,7 +5094,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.5.4.1",
@@ -3969,7 +5109,11 @@
       "source": "derived",
       "verification": "I",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "L4-1.9.5.5.1",
@@ -3981,7 +5125,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-1.9.5.5.2",
@@ -3993,7 +5140,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L4-2.1.2.2.1",
@@ -4005,7 +5155,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Space",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-2.3.1.1.1",
@@ -4017,7 +5171,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-2.3.1.2.1",
@@ -4029,7 +5186,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-2.3.1.3.1",
@@ -4041,7 +5201,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-2.3.2.5.1",
@@ -4053,7 +5216,10 @@
       "source": "derived",
       "verification": "D",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-2.3.3.3.1",
@@ -4065,7 +5231,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-2.4.2.1.1",
@@ -4077,7 +5246,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F8"
+      ]
     },
     {
       "id": "L4-3.1.2.1.1",
@@ -4089,7 +5261,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.1.2.2.1",
@@ -4101,7 +5277,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.3.2.1.1",
@@ -4113,7 +5293,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.3.2.3.1",
@@ -4125,7 +5309,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.3.4.1.1",
@@ -4137,7 +5325,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.3.4.3.1",
@@ -4149,7 +5341,11 @@
       "source": "derived",
       "verification": "A",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-3.3.4.4.1",
@@ -4161,7 +5357,11 @@
       "source": "derived",
       "verification": "T",
       "segment": "Ground",
-      "status": "TBR"
+      "status": "TBR",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "L4-RX-AUDIO",
@@ -4173,7 +5373,10 @@
       "verification": "T",
       "segment": "User equipment",
       "status": "TBD",
-      "example": true
+      "example": true,
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "L4-RX-POWER",
@@ -4185,7 +5388,10 @@
       "verification": "D",
       "segment": "User equipment",
       "status": "draft",
-      "example": true
+      "example": true,
+      "fn": [
+        "F7"
+      ]
     },
     {
       "id": "MO-1",
@@ -4194,7 +5400,11 @@
       "name": "Collect",
       "statement": "Collect short messages from thousands of low-power gauges, sensors, wildlife tags, and ranger devices anywhere in the basin, including under canopy.",
       "source": "mission",
-      "status": "agreed"
+      "status": "agreed",
+      "fn": [
+        "F2",
+        "F3"
+      ]
     },
     {
       "id": "MO-2",
@@ -4203,7 +5413,11 @@
       "name": "Warn",
       "statement": "Broadcast geo-targeted, spoken alerts to every community and confirm delivery.",
       "source": "mission",
-      "status": "agreed"
+      "status": "agreed",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     },
     {
       "id": "MO-3",
@@ -4212,7 +5426,11 @@
       "name": "Coordinate",
       "statement": "Give rangers and responders two-way communications that survive loss of terrestrial networks.",
       "source": "mission",
-      "status": "agreed"
+      "status": "agreed",
+      "fn": [
+        "F6",
+        "F7"
+      ]
     }
   ],
   "links": [
