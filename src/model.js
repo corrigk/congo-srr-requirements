@@ -58,7 +58,7 @@ export function build(snapshot) {
   const ancestors = id => walk(id, x => ups.get(x) || []);
   const descendants = id => walk(id, x => kids.get(x) || []);
 
-  // Functions (F1–F8 of the functional flow): a requirement's own tags, else inherited from its parents.
+  // Functions (the functional flow blocks, F1–F9): a requirement's own tags, else inherited from its parents.
   const fnAll = new Map();
   const fnOf = id => {
     if (fnAll.has(id)) return fnAll.get(id);
@@ -102,7 +102,7 @@ export function checks(m) {
     if (!r.statement?.trim()) out.push({ id: r.id, kind: 'statement', severity: 'error', text: 'No "shall" statement' });
     else if (!/\bshall\b/i.test(r.statement)) out.push({ id: r.id, kind: 'shall', severity: 'warn', text: 'Statement has no "shall"' });
     if (!r.verification) out.push({ id: r.id, kind: 'verification', severity: 'warn', text: 'No verification method' });
-    if (r.level === 1 && !r.fnAll.length) out.push({ id: r.id, kind: 'function', severity: 'warn', text: 'Not traced to a function (F1–F8)' });
+    if (r.level === 1 && !r.fnAll.length) out.push({ id: r.id, kind: 'function', severity: 'warn', text: 'Not traced to a function (F1–F9)' });
     if (r.level != null && r.level > LEVEL_MAX) out.push({ id: r.id, kind: 'deep', severity: 'warn', text: `Level ${r.level}: deeper than Level ${LEVEL_MAX}` });
     if (r.status === 'TBD' || r.status === 'TBR') out.push({ id: r.id, kind: 'open', severity: 'info', text: `Marked ${r.status}` });
     if (r.example) out.push({ id: r.id, kind: 'example', severity: 'info', text: 'Example requirement: edit or delete' });

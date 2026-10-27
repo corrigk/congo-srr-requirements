@@ -1,53 +1,50 @@
 {
-  "source": "congo-river-basin-SRR analysis/data/functions.json",
+  "_note": "The functional flow requirements trace to (nine blocks, from the team's flow). Edit here. Descriptions are drafts written from the sub-steps; the sub-steps (steps) are copied from the team's flow.",
   "functions": [
     {
-      "id": "F1",
-      "name": "DETECT",
-      "label": "Detect rising water",
-      "description": "A sensor, tag, ranger device or partner system detects an event that crosses a threshold and forms a short, time-stamped priority message."
+      "id": "F1", "name": "Acquire Environment & Field Data", "short": "Acquire",
+      "description": "Sensors, tags and ranger devices measure conditions, attach observation metadata, format a standardized data message, set its priority and queue it for transmission.",
+      "steps": ["Identify data source", "Measure conditions", "Determine observation metadata", "Format into standardized data message", "Assign message priority", "Queue message for transmission"]
     },
     {
-      "id": "F2",
-      "name": "TRANSMIT to satellite",
-      "label": "Transmit to satellite",
-      "description": "The terminal sends the message to a satellite overhead, directly or through the nearest ranger-station tower when it sits under canopy."
+      "id": "F2", "name": "Transmit Data to Ground", "short": "Transmit",
+      "description": "The terminal selects a satellite path, links up and sends the message; the satellite receives and validates it, directs it to the right ground terminal, forwards it to the ground system and acknowledges reception.",
+      "steps": ["Receive transmission request", "Select available satellite communication path", "Establish communication link with satellite", "Transmit message to satellite", "Receive message on satellite", "Validate and identify message", "Direct message towards correct ground terminal", "Forward message to ground system", "Acknowledge reception"]
     },
     {
-      "id": "F3",
-      "name": "SEND to database",
-      "label": "Send to database",
-      "description": "The satellite downlinks to the nearest gateway; the regional database stores it, filters duplicates and forwards it to the Kinshasa hub, where it appears on the common operating picture (COP). Each node keeps a replica."
+      "id": "F3", "name": "Process Data", "short": "Process",
+      "description": "The ground system receives and validates the message, reconciles it with existing records, stores it in the central database, updates current models and distributes the information to monitors.",
+      "steps": ["Receive incoming message", "Validate and identify message", "Reconcile incoming observations with existing records", "Store data in central database", "Update current models", "Distribute information to monitors"]
     },
     {
-      "id": "F4",
-      "name": "PROCESS, evaluate threat",
-      "label": "Process, evaluate threat",
-      "description": "Hub analysts and models fuse the event with other data (radar, weather, history) and decide whether it is a threat, where, and who is at risk."
+      "id": "F4", "name": "Evaluate Conditions", "short": "Evaluate",
+      "description": "Relevant data is retrieved, measurements are compared with predefined thresholds and correlated across sources, hazard severity and location are assessed, and the need for an alert is decided.",
+      "steps": ["Retrieve relevant data", "Compare measurements to predefined thresholds", "Correlate observations of multiple data sources", "Assess hazard severity and location", "Determine necessity of an alert"]
     },
     {
-      "id": "F5",
-      "name": "AUTHORIZE",
-      "label": "Authorize",
-      "description": "The responsible national agency approves the alert and issues it as a CAP message. S-3 never decides; it only carries."
+      "id": "F5", "name": "Generate Alerts", "short": "Generate",
+      "description": "A proposed alert is generated, validated against its source data, customized for the geographic location of the hazard and completed as a full alert message.",
+      "steps": ["Generate proposed alert", "Validate alert information and source data", "Customize alert for geographic location of hazard", "Generate complete alert message"]
     },
     {
-      "id": "F6",
-      "name": "RETRANSMIT to satellite",
-      "label": "Retransmit to satellite",
-      "description": "The hub validates the CAP message, converts it to speech in the district's languages, sets the geo-target area and uplinks it to the broadcast satellite."
+      "id": "F6", "name": "Broadcast Alerts", "short": "Broadcast",
+      "description": "Target recipients and the delivery pathway are chosen; the alert goes from the ground system to the satellite network, is relayed across it and delivered to community receivers and responders, and delivery status is reported.",
+      "steps": ["Identify target recipients", "Select appropriate pathway", "Transmit alert from ground system to satellite network", "Relay alert across network", "Deliver alert to community receivers and responders", "Report delivery status"]
     },
     {
-      "id": "F7",
-      "name": "SEND to outposts",
-      "label": "Send to outposts",
-      "description": "Community receivers and ranger-station loudspeakers inside the target area wake up and play the alert aloud; ranger terminals get the text."
+      "id": "F7", "name": "Receive & Present Alerts", "short": "Receive",
+      "description": "The receiver or terminal receives and validates the alert, converts text to spoken audio if required, activates the community notification interface, presents the alert, records reception status and transmits an acknowledgement.",
+      "steps": ["Receive alert on receiver or terminal", "Validate alert", "Convert alert text into spoken audio if required", "Activate community notification interface", "Present alert on compatible terminals", "Record alert reception status", "Transmit acknowledgement"]
     },
     {
-      "id": "F8",
-      "name": "VERIFICATION",
-      "label": "Verification",
-      "description": "Ranger stations confirm the alert was heard (receiver check-ins, patrols, the tower loudspeaker) and report ground truth; the acknowledgment returns over the satellite link and closes the loop to F4."
+      "id": "F8", "name": "Monitor System", "short": "Monitor",
+      "description": "Delivery acknowledgments are received and alert delivery status updated, missing acknowledgments are identified, satellite and terminal health is inspected and operators are notified of degradation.",
+      "steps": ["Receive delivery acknowledgment", "Update alert delivery status", "Identify missing acknowledgments", "Inspect satellite and terminal health", "Notify operators of degradation if necessary"]
+    },
+    {
+      "id": "F9", "name": "Coordinate Response", "short": "Coordinate",
+      "description": "Messages from responders are received and the sender authenticated and prioritized; messages go through the satellite network and are delivered to the outpost, return commands are received and return messages relayed, field reports update the models and communication queues are maintained.",
+      "steps": ["Receive message from responders", "Authenticate user", "Assign message priority", "Transmit message through satellite network", "Deliver message to outpost", "Receive return commands", "Relay return messages", "Update models with relevant field reports", "Maintain communication queues"]
     }
   ]
 }

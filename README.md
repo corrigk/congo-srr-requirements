@@ -22,7 +22,7 @@ npm start          # opens http://localhost:5180
 | Outline (1) | The whole decomposition as an indented list. The editor lives here. |
 | Thread tree (2) | Across (L0 left → L4 right) or down (L0 top, leaf siblings stacked under their parent); **Auto** picks whichever fills the screen. **Depth** (L1 … All) folds everything deeper into **+N** badges: click one to open that branch, **−** to fold it. Choosing segments in the toolbar turns the tree into a **focus view**: only those requirements and the parents above them, with **Show all** to zoom back out. Click a block to light its full thread, up and down. |
 | Radial (3) | MOs in the centre, one ring per level: the whole decomposition in one picture. |
-| Matrix (4) | Every requirement against its parents, verification method, segment, status or **function** (F1–F8). Gaps are flagged. |
+| Matrix (4) | Every requirement against its parents, verification method, segment, status or **function** (F1–F9). Gaps are flagged. |
 | Table (5) | One row per requirement, in outline order, for reading or a slide. Pick the **columns**; **Copy for slides** puts a formatted table on the clipboard (paste into PowerPoint or Word); **Download CSV** has every field and opens in Excel; **Print / PDF** is a landscape page with the header repeated. It follows the filters and the search box. |
 | Graph (6) | Force-directed web of every requirement and link. Drag nodes around. |
 | Baselines (7) | Finalize a baseline; compare any two versions (added, removed, moved, changed). |
@@ -33,12 +33,11 @@ and how each is verified: T test, D demonstration, A analysis, I inspection, `?`
 (owner, threshold, rationale, L1 function) and the functional flow. Every number follows the filters, and clicking a
 segment, function or MO is the filter (click again to clear; the link remembers it).
 
-**Tracing to the functional flow (F1–F8).** Tag each **Level 1** requirement with the functions it supports (panel →
+**Tracing to the functional flow (F1–F9).** Tag each **Level 1** requirement with the functions it supports (panel →
 Functional flow). Level 2–4 **inherit** their L1's tags, shown dashed; tag one separately to override. Tags show in the
 panel, the strip (counts per function, click to filter), the Matrix (Function mode), the Table and the CSV (traced and
 own tags in separate columns). **Suggest functions…** in the strip fills in a review dialog for untagged L1s from their
-wording; nothing is saved until you press Apply, and every box can be changed. The F1–F8 list is a copy of the SRR
-page's `functions.json`: after changing it there, run `npm run sync:functions` (both repos side by side).
+wording; nothing is saved until you press Apply, and every box can be changed. The nine blocks (Acquire Environment & Field Data, Transmit Data to Ground, Process Data, Evaluate Conditions, Generate Alerts, Broadcast Alerts, Receive & Present Alerts, Monitor System, Coordinate Response) and their sub-steps are in `src/functions.json`: edit that file to rename or describe them (descriptions are drafts).
 
 **Editing**
 

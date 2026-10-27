@@ -14,7 +14,7 @@ export function openSuggestions(ctx) {
         <p>Suggested from each requirement's wording and its children's names. <b>Check the boxes you agree with</b>, change the rest, then Apply.
         Level 2–4 requirements under an L1 inherit its functions unless you tag them separately.</p></header>
       <div class="fd-scroll"><table class="fd-table">
-        <thead><tr><th>Requirement</th>${FUNCTIONS.map(f => `<th title="${esc(`${f.id} ${f.title}`)}"><span>${f.id}</span><small>${esc(f.title.split(' ')[0])}</small></th>`).join('')}</tr></thead>
+        <thead><tr><th>Requirement</th>${FUNCTIONS.map(f => `<th title="${esc(`${f.id} ${f.title}`)}"><span>${f.id}</span><small>${esc(f.short)}</small></th>`).join('')}</tr></thead>
         <tbody>${rows.map(r => `<tr data-id="${esc(r.id)}">
           <th><b>${esc(r.id)}</b> ${esc(r.name || '')}<small>${esc(short(r.statement, 140))}</small>${hint.get(r.id).length ? '' : '<em>no suggestion: pick by hand</em>'}</th>
           ${FUNCTIONS.map(f => `<td><input type="checkbox" value="${f.id}" aria-label="${esc(`${r.id} ${f.id}`)}" ${hint.get(r.id).includes(f.id) ? 'checked' : ''} /></td>`).join('')}</tr>`).join('')}

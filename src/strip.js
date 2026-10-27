@@ -39,7 +39,7 @@ export function renderStrip(ctx) {
   // ----- functional flow -----
   const fnBase = within('fn');
   const fnBox = f => `<button class="st-fn" data-fn="${f.id}" aria-pressed="${state.fns.has(f.id)}" title="${esc(`${f.id} ${f.title}: ${f.description}`)}">
-      <em>${f.id}</em><span>${esc(f.title)}</span><b>${n(fnBase, r => r.fnAll.includes(f.id))}</b></button>`;
+      <em>${f.id}</em><span>${esc(f.short)}</span><b>${n(fnBase, r => r.fnAll.includes(f.id))}</b></button>`;
   const noFn = n(fnBase, r => !r.fnAll.length);
   const untagged = m.reqs.filter(r => r.type !== 'mo' && r.level === 1 && !r.fnOwn.length).length;
   const fns = `
