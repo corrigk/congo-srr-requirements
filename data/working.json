@@ -11,7 +11,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L1-1.2",
@@ -23,7 +26,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F2"
+      ]
     },
     {
       "id": "L1-1.3",
@@ -35,7 +41,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L1-1.4",
@@ -46,19 +55,25 @@
       "rationale": "Environmental monitoring data must be trustworthy, particularly when used to initiate emergency alerts.",
       "source": "derived",
       "verification": "T",
-      "segment": "System"
+      "segment": "System",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L1-1.5",
       "type": "req",
       "name": "Store-and-Forward",
       "statement": "The system shall retain sensor messages during loss of an available onward communication path and forward them when a suitable path becomes available.",
-      "threshold": "≥100 queued messages per configured sensor/relay node (proposed; TBR)",
-      "rationale": "A hybrid satellite/terrestrial architecture requires buffering when either backhaul path is temporarily unavailable.",
+      "threshold": "Retain all accepted messages over allocated onward-path outages under the defined arrival-rate and buffer-overflow policy; per-node capacity sized by analysis (TBR).",
+      "rationale": "A single 100-message figure is not adequate for all sensor/repeater/station roles; buffering depends on assigned terminals, message rate, outage window, and priority.",
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L1-1.6",
@@ -70,7 +85,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L1-1.7",
@@ -82,7 +100,10 @@
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F1"
+      ]
     },
     {
       "id": "L1-1.8",
@@ -94,7 +115,10 @@
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "fn": [
+        "F3"
+      ]
     },
     {
       "id": "L1-1.9",
@@ -482,8 +506,8 @@
       "type": "req",
       "name": "Sensor Message Buffering",
       "statement": "Sensor terminals and relay nodes designated for buffering shall retain accepted messages while their onward communication path is unavailable.",
-      "threshold": "≥100 messages per designated buffering device (proposed; TBR)",
-      "rationale": "Allocated implementation capability required to fulfill the parent system requirement.",
+      "threshold": "Buffer capacity by node type TBR from accepted-message arrival rate, outage interval, payload lengths and overflow policy; 100-message prior example not binding.",
+      "rationale": "Terminal, repeater, and ranger-station arrival rates can differ by orders of magnitude; capacity is assigned after scenario analysis.",
       "source": "derived",
       "verification": "T",
       "segment": "User equipment",
@@ -1438,6 +1462,18 @@
       "status": "draft"
     },
     {
+      "id": "L3-1.1.2.3",
+      "type": "req",
+      "name": "Sensor Reporting Profile",
+      "statement": "The sensor terminal shall support a configurable reporting profile defining transmission frequency and application payload size.",
+      "threshold": "Aggregate daily routine payload at least 2 kB/terminal; individual packet size and cadence TBR.",
+      "rationale": "Allows coverage, airtime, and power calculations to use an explicit operating profile.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
       "id": "L3-1.1.3.1",
       "type": "req",
       "name": "Sensor Packet Decode",
@@ -1894,6 +1930,18 @@
       "status": "draft"
     },
     {
+      "id": "L3-1.7.2.3",
+      "type": "req",
+      "name": "Peak Traffic Capacity",
+      "statement": "The network shall support its allocated peak simultaneous sensor-message demand under the approved reporting and access schedule.",
+      "threshold": "Peak-to-average factor TBR; minimum application average is 1.85 kbps basin-wide for 10,000 × 2 kB/day (decimal kB).",
+      "rationale": "Average daily volume alone does not demonstrate operation under burst traffic or contact-window constraints.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "TBR"
+    },
+    {
       "id": "L3-1.7.3.1",
       "type": "req",
       "name": "Access Control Schedule",
@@ -2062,6 +2110,42 @@
       "status": "draft"
     },
     {
+      "id": "L3-1.9.3.3",
+      "type": "req",
+      "name": "Station Autonomous Power",
+      "statement": "Each permanent ranger-station communications gateway shall operate from a photovoltaic-charged energy-storage subsystem without grid power.",
+      "threshold": "Solar + rechargeable storage required; daily energy and autonomy TBR from load and irradiance study.",
+      "rationale": "Permanent facilities must continue to collect and relay data without reliable electric-grid access.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L3-1.9.3.4",
+      "type": "req",
+      "name": "Station Elevated Antenna",
+      "statement": "Each permanent ranger-station gateway shall provide an antenna installation capable of achieving its allocated terrestrial and satellite backhaul link performance above local obstructions.",
+      "threshold": "Minimum clearance and mounting height TBR from surveyed canopy and link budget.",
+      "rationale": "Supports above-canopy backhaul while leaving tower, building, or tree support to a deployment trade.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L3-1.9.3.5",
+      "type": "req",
+      "name": "Station Backhaul Buffer",
+      "statement": "The ranger-station gateway shall buffer accepted local sensor messages while no authorized backhaul path is available.",
+      "threshold": "Queue capacity and outage duration TBR from arrival rate and autonomy analysis.",
+      "rationale": "Preserves local measurements when the onward satellite or terrestrial path is temporarily absent.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
       "id": "L3-1.9.4.1",
       "type": "req",
       "name": "Path Availability Check",
@@ -2108,6 +2192,42 @@
       "verification": "T",
       "segment": "Ground",
       "status": "draft"
+    },
+    {
+      "id": "L3-1.9.5.3",
+      "type": "req",
+      "name": "Repeater Autonomous Power",
+      "statement": "Each permanent terrestrial repeater shall use photovoltaic charging and rechargeable energy storage to support its specified communications duty cycle.",
+      "threshold": "Solar/battery autonomy TBR from repeater traffic and insolation assumptions.",
+      "rationale": "Ground relays may be deployed without access to the electrical grid.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L3-1.9.5.4",
+      "type": "req",
+      "name": "Repeater Installation Interface",
+      "statement": "The terrestrial repeater shall support installation on an approved tower, building, or suitable elevated structure without changing the required communications interface.",
+      "threshold": "Mechanical mounting loads, elevation and site suitability TBR.",
+      "rationale": "Allows flexible deployments and separate structures where canopy or weather conditions require them.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L3-1.9.5.5",
+      "type": "req",
+      "name": "Repeater Outage Buffer",
+      "statement": "The terrestrial repeater shall retain accepted sensor messages during a loss of its onward forwarding path.",
+      "threshold": "Retention capacity TBR from outage interval and message traffic; minimum aligned with L2-1.5.1 where designated.",
+      "rationale": "Enables relay operation through intermittent backhaul and avoids immediate data loss.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
     },
     {
       "id": "L3-2.1.1.1",
@@ -2278,6 +2398,18 @@
       "status": "draft"
     },
     {
+      "id": "L3-2.3.1.3",
+      "type": "req",
+      "name": "Community Speaker Interface",
+      "statement": "An installed community warning station shall provide an audio output interface compatible with its designated public-address loudspeaker.",
+      "threshold": "Acoustic coverage and intelligibility TBR by community geometry and background-noise survey.",
+      "rationale": "Distinguishes a permanent outdoor warning installation from the low-cost RFP S3-07 household receiver.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
       "id": "L3-2.3.2.1",
       "type": "req",
       "name": "Downlink Acquisition",
@@ -2364,6 +2496,18 @@
       "verification": "T",
       "segment": "User equipment",
       "status": "draft"
+    },
+    {
+      "id": "L3-2.3.3.3",
+      "type": "req",
+      "name": "Receiver Energy Storage",
+      "statement": "A solar-powered community receiver configuration shall store generated electrical energy for operation during periods without sunlight.",
+      "threshold": "Required stored energy and alert duty cycle TBR; no mandate that every receiver have both solar and crank.",
+      "rationale": "Solar receiver designs must preserve alert capability when sunlight is unavailable.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "TBR"
     },
     {
       "id": "L3-2.4.1.1",
@@ -2966,6 +3110,18 @@
       "status": "draft"
     },
     {
+      "id": "L3-3.3.2.3",
+      "type": "req",
+      "name": "Outdoor Equipment Protection",
+      "statement": "Permanent outdoor ground communications equipment shall maintain its required operation under the site environmental exposure profile.",
+      "threshold": "Ingress protection, humidity, wind and corrosion levels TBR from installation-site surveys.",
+      "rationale": "Rain availability needs both radio fade performance and resilient ground equipment.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
       "id": "L3-3.3.3.1",
       "type": "req",
       "name": "Equipment Life Allocation",
@@ -3012,6 +3168,30 @@
       "verification": "T",
       "segment": "Ground",
       "status": "draft"
+    },
+    {
+      "id": "L3-3.3.4.3",
+      "type": "req",
+      "name": "Ranger Station Backup Energy",
+      "statement": "The permanent ranger-station communications subsystem shall provide battery-supported operation of its satellite backhaul during loss of available solar generation.",
+      "threshold": "Hours of autonomous operation TBR from emergency duty cycle; preliminary sizing example: 24 h.",
+      "rationale": "Keeps responder traffic available during night and tropical storms without requiring a hand crank for station loads.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L3-3.3.4.4",
+      "type": "req",
+      "name": "Backhaul Path Health",
+      "statement": "The ranger-station gateway shall evaluate availability of its configured terrestrial and satellite backhaul connections for route selection.",
+      "threshold": "Health-check interval and failover limit TBR from command-delivery budget.",
+      "rationale": "Detects communication failure and prevents indefinitely attempting a nonfunctional route.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
     },
     {
       "id": "L3-3.4.1.1",
@@ -3514,6 +3694,474 @@
       "verification": "A",
       "segment": "System",
       "status": "draft"
+    },
+    {
+      "id": "L4-1.1.2.3.1",
+      "type": "req",
+      "name": "Reporting Payload Allocation",
+      "statement": "The configured sensor reporting profile shall deliver the allocated routine application payload over each 24-hour interval.",
+      "threshold": "≥2,000 bytes per terminal per day (decimal kB interpretation of RFP S3-02; confirm unit convention).",
+      "rationale": "Connects configurable cadence to the minimum RFP data volume.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L4-1.3.2.1.1",
+      "type": "req",
+      "name": "Terminal Standby Current",
+      "statement": "The sensor terminal shall draw no more than its allocated standby current while in the reduced-power state.",
+      "threshold": "Standby current TBR from one-year energy budget, duty cycle and terminal chemistry.",
+      "rationale": "Standby energy can dominate long-life low-reporting-rate deployments.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.3.2.2.1",
+      "type": "req",
+      "name": "Timed Wake Accuracy",
+      "statement": "The sensor controller shall initiate a scheduled communication opportunity within its allocated timing tolerance.",
+      "threshold": "Clock tolerance TBR from access-window schedule and synchronization design.",
+      "rationale": "Limits unnecessary radio-on time and missed contact opportunities.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.3.3.1.1",
+      "type": "req",
+      "name": "RF Transmit Energy Allocation",
+      "statement": "The terminal radio shall remain within the maximum transmission energy allocated to each delivered routine message under the reference link profile.",
+      "threshold": "J/message TBR from link budget, retransmission probability and annual power budget.",
+      "rationale": "Binds transmit design to the lifetime requirement without selecting a radio prematurely.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.6.2.1.1",
+      "type": "req",
+      "name": "Canopy Attenuation Assumption",
+      "statement": "Each representative link budget shall state the modeled excess vegetation attenuation for the applicable sensor-to-relay propagation path.",
+      "threshold": "Vegetation loss in dB TBR by frequency, distance, canopy class and field measurements.",
+      "rationale": "Forest attenuation cannot be assigned a universal value without site and band assumptions.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.6.2.2.1",
+      "type": "req",
+      "name": "Canopy Received Signal Margin",
+      "statement": "The selected under-canopy radio interface shall meet its allocated minimum received-power margin at the designated vegetation and terrain test conditions.",
+      "threshold": "Required field-measured margin TBR from specified packet-delivery reliability and vegetation statistics; 6 dB is a preliminary comparison target, not a verified basin-wide margin.",
+      "rationale": "Example 900 MHz, 2 km radio path yields ~16.4 dB margin with assumed 20 dB vegetation loss, but ~1.4 dB at 35 dB vegetation loss, for −120 dBm sensitivity. Test multiple canopy depths before fixing coverage claims.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.7.2.1.1",
+      "type": "req",
+      "name": "Minimum Payload Throughput",
+      "statement": "The capacity budget shall include at least 160 Mbit of routine application payload over each 24-hour reporting period.",
+      "threshold": "≥160 Mbit/day (10,000 terminals × 2,000 bytes × 8 bits).",
+      "rationale": "Direct arithmetic allocation of RFP S3-02 minimum volume; overhead excluded.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L4-1.7.2.2.1",
+      "type": "req",
+      "name": "Protocol Overhead Factor",
+      "statement": "The capacity analysis shall distinguish application-payload throughput from additional protocol, acknowledgment, and retransmission traffic.",
+      "threshold": "Overhead factor TBR from candidate protocol packet format and error model.",
+      "rationale": "Prevents equating message payload volume with raw RF capacity.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.7.2.3.1",
+      "type": "req",
+      "name": "Average Baseline Data Rate",
+      "statement": "The communications capacity analysis shall demonstrate sufficient aggregate application-payload throughput to carry the minimum RFP sensor reporting volume over the allocated available network contact time.",
+      "threshold": "160 Mbit of sensor application payload per 24 h for 10,000 × 2 kB/day (RFP S3-02); average over 24 h = 1.852 kbps. Peak link rate TBR from contact-window fraction, protocol efficiency and design peak factor.",
+      "rationale": "For illustration only, 10% aggregate effective contact opportunity, 50% payload efficiency and a peak factor of 3 imply 1.852 kbps × 3 / (0.10 × 0.50) ≈111.1 kbps peak raw capacity. Avoid equating daily application average with RF air-interface throughput.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.2.1.1",
+      "type": "req",
+      "name": "Terrestrial Radio Link Budget",
+      "statement": "The terrestrial sensor-link design shall achieve the allocated receiver-input margin at the design range and specified vegetation, terrain, and equipment loss conditions.",
+      "threshold": "Operating band, range, EIRP, sensitivity, vegetation loss and required fade margin TBR. Reference only: 900 MHz, 2 km, 14 dBm TX, 0/3 dBi antennas, 20 dB vegetation and 3 dB other loss gives ≈−103.6 dBm received.",
+      "rationale": "Using FSPL = 32.44 + 20log10(f_MHz) + 20log10(d_km), reference FSPL = 97.55 dB. With assumed −120 dBm receiver sensitivity, margin ≈16.4 dB at 20 dB vegetation loss, but ≈1.4 dB at 35 dB loss. This illustrates sensitivity to canopy and does not justify a chosen radio band or deployment radius.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.2.1.2",
+      "type": "req",
+      "name": "Terrestrial Link Field Trial",
+      "statement": "The terrestrial sensor radio interface shall be tested at designated canopy-depth and distance combinations with recorded packet delivery ratio and received signal level.",
+      "threshold": "Test grid, packet sample size, site count and acceptance packet-delivery fraction TBR.",
+      "rationale": "Field characterization is required to validate the propagation trade and translate simulated coverage into deployable repeater placement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.2.2.1",
+      "type": "req",
+      "name": "Relay Reception Verification",
+      "statement": "The repeater receiver shall validate sensor-message reception under the reference RF test profile.",
+      "threshold": "Required packet success rate and RF attenuation TBR from end-to-end reliability allocation.",
+      "rationale": "Verifies terrestrial ingress as a measured interface.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.2.1",
+      "type": "req",
+      "name": "Satellite Backhaul Capacity",
+      "statement": "The ranger gateway satellite interface shall carry its allocated aggregate data and responder traffic under the approved service profile.",
+      "threshold": "kbps capacity TBR from nearby sensor population, alert and responder peak load.",
+      "rationale": "Avoids assuming all station capacity is available to routine telemetry.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.3.1",
+      "type": "req",
+      "name": "Station Battery Autonomy",
+      "statement": "The ranger-station energy-storage subsystem shall supply the designated essential communications load for the allocated solar-unavailable autonomy duration without external charging.",
+      "threshold": "Autonomy duration TBR; 24 h preliminary reference case. Nameplate battery energy shall be sized from essential W × autonomy h ÷ (usable depth of discharge × end-of-life capacity factor × discharge-path efficiency).",
+      "rationale": "Illustration: 30 W × 24 h /(0.80 × 0.80 × 0.90) = 1,250 Wh nominal battery storage. The 30 W load and derating factors are trade-study assumptions, not measured site data.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.3.2",
+      "type": "req",
+      "name": "Station Energy Balance",
+      "statement": "The ranger-station photovoltaic system shall generate sufficient usable daily energy to supply essential station loads under the adopted design-month solar resource after specified PV-system losses.",
+      "threshold": "Design-month equivalent sun hours and net PV efficiency TBR; illustrative 30 W load, 3 peak-sun-hours/day, 65% net yield imply ≥370 Wp of PV nameplate capacity before reserve recharge.",
+      "rationale": "Illustration: 30 W × 24 h /(3 h/day × 0.65) = 369.2 Wp. Field shading/seasonal solar resource must be checked; PV capacity for recovery after multiple cloudy days is a separate allocation.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.3.3",
+      "type": "req",
+      "name": "Station Battery Recharge Recovery",
+      "statement": "The ranger-station energy subsystem shall replenish its designated battery reserve within the allocated recovery interval under specified solar-resource conditions.",
+      "threshold": "Recovery days, power derating and reserve-restoration target TBR.",
+      "rationale": "Daily load coverage is not equivalent to restoring energy depleted during a prolonged outage.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.4.1",
+      "type": "req",
+      "name": "Antenna Height Allocation",
+      "statement": "The ranger-station backhaul antenna shall be mounted at the site-specific height established by the selected line-of-sight, obstruction-clearance, structural, and serviceability analyses.",
+      "threshold": "Site-specific height and allowable mounting method TBR; no universal tower height allocated.",
+      "rationale": "Local canopy height alone does not fix antenna height: local terrain, satellite look-angle, terrestrial backhaul Fresnel clearance, structural wind loads, and accessible maintenance determine siting.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.4.2",
+      "type": "req",
+      "name": "Antenna Structure Loads",
+      "statement": "An elevated ranger-station antenna installation shall withstand the site design wind loading in its installed configuration.",
+      "threshold": "Design wind speed/load and structural safety margin TBR from adopted site code.",
+      "rationale": "Remote towers and tree mounts require site-specific structural assessment.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.4.3",
+      "type": "req",
+      "name": "Backhaul Antenna Access",
+      "statement": "The installed ranger-station antenna support shall provide a maintainable antenna access or replacement method consistent with the site installation plan.",
+      "threshold": "Approved maintenance method and inspection interval TBR.",
+      "rationale": "Remote stations need an affordable servicing strategy when elevated antennas or cables fail.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.3.5.1",
+      "type": "req",
+      "name": "Station Queue Persistence",
+      "statement": "The ranger gateway shall retain queued sensor message contents across a loss and restoration of external electrical input within its specified backup-power envelope.",
+      "threshold": "Queued message retention period TBR; zero loss in defined power-interruption test.",
+      "rationale": "Tests buffering at a particularly realistic failure point.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.5.3.1",
+      "type": "req",
+      "name": "Repeater Battery Autonomy",
+      "statement": "The permanent repeater energy-storage subsystem shall power essential relay receiving, forwarding and control functions throughout the allocated period without photovoltaic generation.",
+      "threshold": "Autonomy duration TBR; 24 h illustrative reference. Nominal battery capacity calculated using specified depth-of-discharge, aging, and discharge-efficiency factors.",
+      "rationale": "Illustration: 8 W × 24 h /(0.80 × 0.80 × 0.90) = 333.3 Wh nominal storage; the 8 W assumed load must be verified against chosen radios and duty cycle.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.5.3.2",
+      "type": "req",
+      "name": "Repeater Solar Energy Balance",
+      "statement": "The permanent repeater photovoltaic supply shall satisfy the design-day energy demand of its essential radio and controller loads after system losses.",
+      "threshold": "Daily insolation and loss factors TBR; reference 8 W × 24 h /(3 peak-sun-hours × 0.65) = 98.5 Wp.",
+      "rationale": "Illustrative 8 W relay continuously powered; PV power is sensitive to shade and worst-month resource.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.5.4.1",
+      "type": "req",
+      "name": "Repeater Mount Adaptability",
+      "statement": "The repeater enclosure and antenna assembly shall attach to the approved mechanical mounting interface defined for its installation class.",
+      "threshold": "Site installation class and allowable support loads TBR.",
+      "rationale": "Permits towers where canopy height or weather makes simpler mounts unsuitable.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.5.5.1",
+      "type": "req",
+      "name": "Repeater Queue Capacity",
+      "statement": "A designated buffering repeater shall retain the maximum number of messages accepted during its allocated onward-link outage without overwriting unexpired priority messages.",
+      "threshold": "Capacity ≥ ceiling(design incoming messages per hour × outage hours × burst allowance); all factors TBR. Illustrative 200 sensors × 2,000 B/day ÷ 100 B/message × 24 h outage = 4,000 messages before allowance.",
+      "rationale": "A 100-message buffer may be insufficient for a busy repeater: a sample design with 200 terminals sending twenty 100-byte payloads per day produces 4,000 messages in 24 h. Packet metadata and queue policy require separate allocation.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-1.9.5.5.2",
+      "type": "req",
+      "name": "Repeater Message Memory Allocation",
+      "statement": "The repeater message store shall provide sufficient nonvolatile memory for accepted messages over its allocated outage period, including payload, identifiers, timestamps and queue metadata.",
+      "threshold": "Storage bytes TBR; example 4,000 messages × (100 B payload + 40 B metadata) = 560,000 B, before redundancy and filesystem allowance.",
+      "rationale": "This is a worked sizing example; the 40 B metadata allocation is illustrative.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.1.2.2.1",
+      "type": "req",
+      "name": "Alert Air Interface Budget",
+      "statement": "The satellite alert relay link shall carry the allocated alert payload within the end-to-end authorized-alert delivery budget.",
+      "threshold": "Contribute to ≤10 min at ≥95% receivers (RFP S3-05); hop-level allocation TBR.",
+      "rationale": "Ensures space-segment delay is budgeted rather than inheriting the entire latency allowance.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Space",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.3.1.1.1",
+      "type": "req",
+      "name": "Spoken Payload Duration",
+      "statement": "The speech playback chain shall reproduce the complete designated alert audio without truncation at the maximum supported alert duration.",
+      "threshold": "Maximum audio duration and encoding rate TBR from authority message profile.",
+      "rationale": "Audio design must preserve complete emergency instructions.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.3.1.2.1",
+      "type": "req",
+      "name": "Receiver Output Sound Level",
+      "statement": "The audio output shall achieve the specified speech sound pressure level at the designated listener location.",
+      "threshold": "SPL in dBA at specified distance TBR from receiver use case and acoustic survey.",
+      "rationale": "A 25-dollar personal receiver and outdoor PA station require different acoustic allocations.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.3.1.3.1",
+      "type": "req",
+      "name": "Outdoor Acoustic Coverage",
+      "statement": "The installed public-address subsystem shall reproduce intelligible warning speech within the surveyed target listening area.",
+      "threshold": "Minimum speech intelligibility score, listener distance and ambient-noise level TBR after acoustic survey.",
+      "rationale": "Outdoor siren/loudspeaker sizing must respond to site geometry, not a handheld receiver specification.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.3.2.5.1",
+      "type": "req",
+      "name": "Antenna Pointing Independence",
+      "statement": "The community receiver antenna shall decode the specified satellite alert signal without mechanically steering the antenna.",
+      "threshold": "No mechanical tracking or pointing (RFP S3-07).",
+      "rationale": "Preserves user simplicity and low cost in remote settlements.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L4-2.3.3.3.1",
+      "type": "req",
+      "name": "Community Receiver Reserve Energy",
+      "statement": "The solar receiver storage unit shall retain sufficient usable energy to receive and play one complete maximum-duration alert after the designated no-sun interval.",
+      "threshold": "Reserve Wh TBR from receiver load and maximum audio duration.",
+      "rationale": "Links storage selection to an emergency functional event.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-2.4.2.1.1",
+      "type": "req",
+      "name": "Return Uplink Payload",
+      "statement": "The acknowledgment return-link message shall include an alert identifier and receiver identifier.",
+      "threshold": "Both identifiers present in all accepted acknowledgment messages.",
+      "rationale": "Allows reception confirmation to be tied to a specific alert and community receiver.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L4-3.1.2.1.1",
+      "type": "req",
+      "name": "Responder Uplink Data Rate",
+      "statement": "The responder radio interface shall support its allocated user bit rate under the approved simultaneous-access scenario.",
+      "threshold": "System minimum ≥4.8 kbps for each of ≥500 concurrent terminals (RFP S3-08); per-link overhead TBR.",
+      "rationale": "Allocates minimum user-throughput requirement without assuming an RF modulation or channel bandwidth.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.1.2.2.1",
+      "type": "req",
+      "name": "Responder Downlink Data Rate",
+      "statement": "The responder radio interface shall support receipt of the allocated downlink user data rate under the approved operating scenario.",
+      "threshold": "Direction-specific allocation TBR; system service objective 4.8 kbps per simultaneous terminal at threshold.",
+      "rationale": "Two-way connectivity requires explicit downlink feasibility.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.3.2.1.1",
+      "type": "req",
+      "name": "Rain Fade Allowance",
+      "statement": "The relevant RF link budget shall specify a rain attenuation margin consistent with the assigned link availability.",
+      "threshold": "Allocated annual availability ≥99.5% system-wide per RFP S3-10; link fade margin TBR by band and rainfall profile.",
+      "rationale": "Rain attenuation is dependent on frequency, location and elevation angle.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.3.2.3.1",
+      "type": "req",
+      "name": "Ground Enclosure Protection",
+      "statement": "An outdoor repeater or gateway enclosure shall withstand the specified site rainfall and humidity exposure without loss of essential communications function.",
+      "threshold": "Ingress protection and humidity test profile TBR after installation class and maintenance plan are selected.",
+      "rationale": "Supports rain service reliability through hardware protection.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.3.4.1.1",
+      "type": "req",
+      "name": "Failover Detection Time",
+      "statement": "The ranger gateway shall identify a failed primary backhaul and initiate its alternate-path procedure within the allocated detection interval.",
+      "threshold": "Detection interval TBR from end-to-end delivery target and contact schedule.",
+      "rationale": "Establishes a verifiable component of outage recovery.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.3.4.3.1",
+      "type": "req",
+      "name": "Essential Communications Load",
+      "statement": "The station power budget shall separately account for the essential satellite modem, gateway and network-control loads during outage operation.",
+      "threshold": "Essential load (W) TBR; illustrative autonomy 24 h implies battery usable Wh ≥ 24 × essential W.",
+      "rationale": "Makes autonomous operation and associated cost calculable.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Ground",
+      "status": "TBR"
+    },
+    {
+      "id": "L4-3.3.4.4.1",
+      "type": "req",
+      "name": "Alternate Path Probe",
+      "statement": "The ranger gateway shall identify a configured satellite backhaul as available only after a successful communications health check.",
+      "threshold": "Probe interval and success criterion TBR.",
+      "rationale": "Avoids failing over to a satellite path that is also unavailable.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "TBR"
     },
     {
       "id": "L4-RX-AUDIO",
@@ -4039,6 +4687,11 @@
       "ord": 2
     },
     {
+      "parent": "L2-1.1.2",
+      "child": "L3-1.1.2.3",
+      "ord": 103
+    },
+    {
       "parent": "L2-1.1.3",
       "child": "L3-1.1.3.1",
       "ord": 1
@@ -4229,6 +4882,11 @@
       "ord": 2
     },
     {
+      "parent": "L2-1.7.2",
+      "child": "L3-1.7.2.3",
+      "ord": 103
+    },
+    {
       "parent": "L2-1.7.3",
       "child": "L3-1.7.3.1",
       "ord": 1
@@ -4299,6 +4957,21 @@
       "ord": 2
     },
     {
+      "parent": "L2-1.9.3",
+      "child": "L3-1.9.3.3",
+      "ord": 103
+    },
+    {
+      "parent": "L2-1.9.3",
+      "child": "L3-1.9.3.4",
+      "ord": 104
+    },
+    {
+      "parent": "L2-1.9.3",
+      "child": "L3-1.9.3.5",
+      "ord": 105
+    },
+    {
       "parent": "L2-1.9.4",
       "child": "L3-1.9.4.1",
       "ord": 1
@@ -4317,6 +4990,21 @@
       "parent": "L2-1.9.5",
       "child": "L3-1.9.5.2",
       "ord": 2
+    },
+    {
+      "parent": "L2-1.9.5",
+      "child": "L3-1.9.5.3",
+      "ord": 103
+    },
+    {
+      "parent": "L2-1.9.5",
+      "child": "L3-1.9.5.4",
+      "ord": 104
+    },
+    {
+      "parent": "L2-1.9.5",
+      "child": "L3-1.9.5.5",
+      "ord": 105
     },
     {
       "parent": "L2-2.1.1",
@@ -4389,6 +5077,11 @@
       "ord": 2
     },
     {
+      "parent": "L2-2.3.1",
+      "child": "L3-2.3.1.3",
+      "ord": 103
+    },
+    {
       "parent": "L2-2.3.2",
       "child": "L3-2.3.2.1",
       "ord": 1
@@ -4407,6 +5100,11 @@
       "parent": "L2-2.3.3",
       "child": "L3-2.3.3.2",
       "ord": 2
+    },
+    {
+      "parent": "L2-2.3.3",
+      "child": "L3-2.3.3.3",
+      "ord": 103
     },
     {
       "parent": "L2-2.4.1",
@@ -4659,6 +5357,11 @@
       "ord": 2
     },
     {
+      "parent": "L2-3.3.2",
+      "child": "L3-3.3.2.3",
+      "ord": 103
+    },
+    {
       "parent": "L2-3.3.3",
       "child": "L3-3.3.3.1",
       "ord": 1
@@ -4677,6 +5380,16 @@
       "parent": "L2-3.3.4",
       "child": "L3-3.3.4.2",
       "ord": 2
+    },
+    {
+      "parent": "L2-3.3.4",
+      "child": "L3-3.3.4.3",
+      "ord": 103
+    },
+    {
+      "parent": "L2-3.3.4",
+      "child": "L3-3.3.4.4",
+      "ord": 104
     },
     {
       "parent": "L2-3.4.1",
@@ -4897,6 +5610,201 @@
       "parent": "L2-S3-10",
       "child": "L3-S3-10.2",
       "ord": 3
+    },
+    {
+      "parent": "L3-1.1.2.3",
+      "child": "L4-1.1.2.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.3.2.1",
+      "child": "L4-1.3.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.3.2.2",
+      "child": "L4-1.3.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.3.3.1",
+      "child": "L4-1.3.3.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.6.2.1",
+      "child": "L4-1.6.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.6.2.2",
+      "child": "L4-1.6.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.7.2.1",
+      "child": "L4-1.7.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.7.2.2",
+      "child": "L4-1.7.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.7.2.3",
+      "child": "L4-1.7.2.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.2.1",
+      "child": "L4-1.9.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.2.1",
+      "child": "L4-1.9.2.1.2",
+      "ord": 102
+    },
+    {
+      "parent": "L3-1.9.2.2",
+      "child": "L4-1.9.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.3.2",
+      "child": "L4-1.9.3.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.3.3",
+      "child": "L4-1.9.3.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.3.3",
+      "child": "L4-1.9.3.3.2",
+      "ord": 102
+    },
+    {
+      "parent": "L3-1.9.3.3",
+      "child": "L4-1.9.3.3.3",
+      "ord": 103
+    },
+    {
+      "parent": "L3-1.9.3.4",
+      "child": "L4-1.9.3.4.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.3.4",
+      "child": "L4-1.9.3.4.2",
+      "ord": 102
+    },
+    {
+      "parent": "L3-1.9.3.4",
+      "child": "L4-1.9.3.4.3",
+      "ord": 103
+    },
+    {
+      "parent": "L3-1.9.3.5",
+      "child": "L4-1.9.3.5.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.5.3",
+      "child": "L4-1.9.5.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.5.3",
+      "child": "L4-1.9.5.3.2",
+      "ord": 102
+    },
+    {
+      "parent": "L3-1.9.5.4",
+      "child": "L4-1.9.5.4.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.5.5",
+      "child": "L4-1.9.5.5.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-1.9.5.5",
+      "child": "L4-1.9.5.5.2",
+      "ord": 102
+    },
+    {
+      "parent": "L3-2.1.2.2",
+      "child": "L4-2.1.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.3.1.1",
+      "child": "L4-2.3.1.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.3.1.2",
+      "child": "L4-2.3.1.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.3.1.3",
+      "child": "L4-2.3.1.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.3.2.5",
+      "child": "L4-2.3.2.5.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.3.3.3",
+      "child": "L4-2.3.3.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-2.4.2.1",
+      "child": "L4-2.4.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.1.2.1",
+      "child": "L4-3.1.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.1.2.2",
+      "child": "L4-3.1.2.2.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.3.2.1",
+      "child": "L4-3.3.2.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.3.2.3",
+      "child": "L4-3.3.2.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.3.4.1",
+      "child": "L4-3.3.4.1.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.3.4.3",
+      "child": "L4-3.3.4.3.1",
+      "ord": 101
+    },
+    {
+      "parent": "L3-3.3.4.4",
+      "child": "L4-3.3.4.4.1",
+      "ord": 101
     },
     {
       "parent": "L3-ALERT-RX",
