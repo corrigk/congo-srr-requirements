@@ -5,47 +5,120 @@
       "id": "L1-1.1",
       "type": "req",
       "name": "Basin-wide collection",
-      "statement": "The system shall collect short messages from sensor terminals anywhere in the Congo River Basin, including under forest canopy.",
-      "rationale": "Example: basin-wide, under-canopy collection (MO-1).",
+      "statement": "The system shall support the collection of environmental monitoring data from sensor terminals located throughout the defined Congo River Basin service area.",
+      "threshold": "≥95% of designated deployment locations (proposed; TBR)",
+      "rationale": "The system must provide geographically extensive data collection capabilities to support environmental monitoring throughout the basin.",
       "source": "derived",
       "verification": "A",
       "segment": "System",
-      "status": "draft",
-      "example": true
+      "status": "draft"
     },
     {
       "id": "L1-1.2",
       "type": "req",
-      "name": "Priority delivery to the COP",
-      "statement": "The system shall deliver priority sensor messages to the common operating picture.",
-      "rationale": "Example: time-critical data reaches decision makers (MO-1).",
+      "name": "Priority Data Delivery",
+      "statement": "The system shall prioritize designated time-critical sensor messages over routine sensor messages when communication capacity is constrained.",
+      "threshold": "Time-critical messages assigned priority over routine sensor traffic; end-to-end performance allocated to L2-1.2.3.",
+      "rationale": "Critical environmental conditions, such as rapid river level increases, may require immediate attention.",
       "source": "derived",
       "verification": "T",
       "segment": "System",
-      "status": "draft",
-      "example": true
+      "status": "draft"
     },
     {
       "id": "L1-1.3",
       "type": "req",
-      "name": "Low-power terminals",
-      "statement": "The system shall support low-power, low-cost sensor terminals.",
-      "rationale": "Example: terminals must be affordable and long-lived in the field (MO-1).",
+      "name": "Low-Power Terminals",
+      "statement": "The system shall support autonomous sensor-terminal operation for at least one year without battery replacement or external grid power under the specified reporting duty cycle.",
+      "threshold": "≥1 year (RFP S3-04); objective ≥3 years",
+      "rationale": "Aligns minimum autonomous lifetime with RFP S3-04; a five-year goal would be an unapproved stretch target.",
       "source": "derived",
       "verification": "A",
       "segment": "User equipment",
-      "status": "draft",
-      "example": true
+      "status": "draft"
+    },
+    {
+      "id": "L1-1.4",
+      "type": "req",
+      "name": "Data Integrity",
+      "statement": "The system shall detect corrupted sensor messages before delivering them to the designated data collection endpoint.",
+      "threshold": "At least 99% detection of corrupted messages under defined test conditions.",
+      "rationale": "Environmental monitoring data must be trustworthy, particularly when used to initiate emergency alerts.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System"
+    },
+    {
+      "id": "L1-1.5",
+      "type": "req",
+      "name": "Store-and-Forward",
+      "statement": "The system shall retain sensor messages during loss of an available onward communication path and forward them when a suitable path becomes available.",
+      "threshold": "≥100 queued messages per configured sensor/relay node (proposed; TBR)",
+      "rationale": "A hybrid satellite/terrestrial architecture requires buffering when either backhaul path is temporarily unavailable.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L1-1.6",
+      "type": "req",
+      "name": "Under-Canopy Connectivity",
+      "statement": "The system shall support the collection of environmental monitoring data from sensor terminals deployed beneath forest canopy within the designated service area.",
+      "threshold": "Successful message delivery from at least 90% of designated under-canopy test locations.",
+      "rationale": "Dense vegetation can significantly attenuate radio-frequency signals, making communication difficult.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L1-1.7",
+      "type": "req",
+      "name": "Sensor Network Capacity",
+      "statement": "The system shall support simultaneous registration and scheduled data collection from at least 10,000 geographically distributed sensor terminals.",
+      "threshold": "≥10,000 active registered terminals; ≥2 kB routine payload per terminal/day (RFP S3-02)",
+      "rationale": "The network must accommodate large numbers of environmental sensors throughout the Congo River Basin.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L1-1.8",
+      "type": "req",
+      "name": "Data Delivery",
+      "statement": "The system shall deliver successfully received sensor messages to designated data collection endpoints.",
+      "threshold": "≥99% of accepted routine messages delivered within a defined reporting interval (proposed; TBR)",
+      "rationale": "Must distinguish accepted messages from total generated messages and distinguish routine delivery from RFP priority delivery.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L1-1.9",
+      "type": "req",
+      "name": "Multi-Path Data Collection",
+      "statement": "The system shall support sensor-data transport using both direct satellite and terrestrial relay communication path types.",
+      "threshold": "Both direct satellite and terrestrial relay paths supported; not every terminal requires both radios.",
+      "rationale": "Multiple communication paths increase coverage and provide alternatives when direct satellite links are obstructed.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "System",
+      "status": "draft"
     },
     {
       "id": "L1-2.1",
       "type": "req",
       "name": "Alert transmission",
-      "statement": "The system shall transmit emergency alerts to designated communities throughout the Congo River Basin.",
+      "statement": "The system shall cause an authorized alert to be reproduced audibly at 95% or more of targeted community receivers within 10 minutes of alert acceptance.",
       "rationale": "Establishes the alert transmission capability.",
       "source": "derived",
+      "verification": "T",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "threshold": "≤10 min to audible playback for ≥95% of targeted community receivers (RFP S3-05); objective ≤3 min for ≥99%"
     },
     {
       "id": "L1-2.2",
@@ -55,7 +128,9 @@
       "rationale": "Ensures alerts reach the intended geographic areas.",
       "source": "derived",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "threshold": "Targetable geographic alert area ≤50,000 km² (RFP S3-06); objective ≤2,500 km²",
+      "verification": "T"
     },
     {
       "id": "L1-2.3",
@@ -65,7 +140,9 @@
       "rationale": "Establishes the need for community receivers and spoken alerts.",
       "source": "derived",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "threshold": "Alert audibly reproduced at the receiver; receiver requirements per RFP S3-07",
+      "verification": "D"
     },
     {
       "id": "L1-2.4",
@@ -75,7 +152,9 @@
       "rationale": "Establishes the delivery acknowledgment capability.",
       "source": "derived",
       "segment": "System",
-      "status": "draft"
+      "status": "draft",
+      "threshold": "Confirmation method, timeout, and success fraction TBR",
+      "verification": "T"
     },
     {
       "id": "L1-2.5",
@@ -85,43 +164,501 @@
       "rationale": "Establishes independence from existing infrastructure.",
       "source": "derived",
       "segment": "System",
+      "status": "draft",
+      "threshold": "Emergency alerts function during simulated loss of terrestrial communications (TBR duration)",
+      "verification": "D"
+    },
+    {
+      "id": "L1-2.6",
+      "type": "req",
+      "name": "Alert authorization",
+      "statement": "The system shall prevent unauthorized users from initiating emergency alert broadcasts.",
+      "threshold": "100% rejection of unauthorized requests in a defined authentication test suite.",
+      "rationale": "Prevents false emergency broadcasts and malicious use of the network.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L1-2.7",
+      "type": "req",
+      "name": "Alert Prioritization",
+      "statement": "The system shall prioritize emergency alert traffic over routine sensor data transmissions when communication capacity is constrained.",
+      "threshold": "Emergency alerts assigned the highest network scheduling priority.",
+      "rationale": "Emergency alerts should not be delayed by routine environmental monitoring.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L1-2.8",
+      "type": "req",
+      "name": "Alert Language Support",
+      "statement": "The system shall support the transmission and reproduction of emergency alerts in the designated languages of each participating community.",
+      "threshold": "French, Lingala, Kiswahili, Kikongo, Tshiluba (RFP S3-06); objective ≥10 district-selected languages",
+      "rationale": "Emergency alerts must be understandable to their intended recipients.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
       "status": "draft"
     },
     {
       "id": "L1-3.1",
       "type": "req",
       "name": "Responder two-way comms",
-      "statement": "The system shall provide two-way communications between responders and coordinating authorities.",
-      "rationale": "Example: field coordination (MO-3).",
+      "statement": "The system shall provide two-way communications between registered ranger or responder terminals and designated coordination authorities.",
+      "rationale": "Provides responder communication capability in remote areas.",
       "source": "derived",
       "verification": "D",
       "segment": "System",
       "status": "draft",
-      "example": true
+      "example": false,
+      "threshold": "≥500 simultaneous terminals at ≥4.8 kbps each (RFP S3-08); objective ≥5,000 at ≥64 kbps"
     },
     {
       "id": "L1-3.2",
       "type": "req",
       "name": "Commands and acknowledgments",
-      "statement": "The system shall deliver commands and acknowledgments to any responder terminal.",
-      "rationale": "Example: closes the coordination loop (MO-3).",
+      "statement": "The system shall deliver authorized commands and acknowledgments to addressed responder terminals within the required delivery interval.",
+      "rationale": "Closes the command and acknowledgment loop for coordination.",
       "source": "derived",
       "verification": "T",
       "segment": "System",
       "status": "draft",
-      "example": true
+      "example": false,
+      "threshold": "≤6 hours (RFP S3-09); objective ≤15 minutes"
     },
     {
       "id": "L1-3.3",
       "type": "req",
       "name": "Survives terrestrial outages",
-      "statement": "The system shall maintain responder communications without reliance on terrestrial networks.",
-      "rationale": "Example: towers and grid fail in floods and conflict (MO-3).",
+      "statement": "The system shall support responder communications when existing terrestrial communications infrastructure is unavailable.",
+      "rationale": "Maintains coordination during flood, conflict, or infrastructure failures.",
       "source": "derived",
       "verification": "D",
       "segment": "System",
       "status": "draft",
-      "example": true
+      "example": false,
+      "threshold": "Service availability in heavy tropical rain ≥99.5% and service life ≥10 years (RFP S3-10; applicability and outage scenario TBR)"
+    },
+    {
+      "id": "L2-1.1.1",
+      "type": "req",
+      "name": "Service area",
+      "statement": "The system shall provide sensor-data collection service within the service area defined for the Congo River Basin, including designated under-canopy locations.",
+      "threshold": "Entire 3.7 million km² basin; designated under-canopy locations (RFP S3-01; coverage performance TBR)",
+      "objective": "All 10 basin countries",
+      "rationale": "Defines the geographical boundaries of the communications network.",
+      "segment": "System",
+      "verification": "A",
+      "status": "draft"
+    },
+    {
+      "id": "L2-1.1.2",
+      "type": "req",
+      "name": "Sensor Terminal Connectivity",
+      "statement": "The network shall support service for at least 10,000 sensor terminals, each transmitting at least 2 kB of routine data per day.",
+      "threshold": "≥10,000 terminals and ≥2 kB per terminal per day (RFP S3-02)",
+      "objective": "≥100,000 / ≥50 kB",
+      "rationale": "Establishes the ability of sensor terminals to communicate with the network.",
+      "source": "RFP S3-02",
+      "segment": "System",
+      "status": "TBR",
+      "srr": [
+        {
+          "kind": "srr-req",
+          "ref": "S3-02"
+        }
+      ],
+      "verification": "A"
+    },
+    {
+      "id": "L2-1.1.3",
+      "type": "req",
+      "name": "Sensor Message Reception",
+      "statement": "The collection network shall accept valid sensor messages from registered terminals through an available supported communication path.",
+      "rationale": "Ensures the network can receive sensor data.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "System",
+      "verification": "T",
+      "threshold": "Accepted messages logged with terminal identifier and reception time"
+    },
+    {
+      "id": "L2-1.2.1",
+      "type": "req",
+      "name": "Message Priority Classification",
+      "statement": "The network shall classify received sensor messages according to the priority field assigned by an authorized sensor terminal or application.",
+      "threshold": "At least routine and priority classes (proposed)",
+      "rationale": "Message classification capability enabling priority scheduling; RFP S3-03 applies to end-to-end delivery at L2-1.2.3.",
+      "source": "derived",
+      "segment": "Ground",
+      "status": "draft",
+      "verification": "T"
+    },
+    {
+      "id": "L2-1.2.2",
+      "type": "req",
+      "name": "Priority Message Scheduling",
+      "statement": "The network scheduler shall allocate service to priority-class sensor messages before routine-class messages when both contend for constrained capacity.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Space",
+      "verification": "T",
+      "threshold": "Priority class served before routine class in defined contention tests",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.2.3",
+      "type": "req",
+      "name": "Priority Message Delivery",
+      "statement": "The system shall deliver priority sensor messages to the designated common operating picture within 30 minutes for at least 95% of qualifying messages.",
+      "source": "RFP S3-03",
+      "status": "TBR",
+      "segment": "System",
+      "verification": "T",
+      "threshold": "≤30 min for ≥95% (RFP S3-03); objective ≤5 min for ≥99%",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement.",
+      "srr": [
+        {
+          "kind": "srr-req",
+          "ref": "S3-03"
+        }
+      ],
+      "objective": "≤5 min, ≥99% delivered"
+    },
+    {
+      "id": "L2-1.3.1",
+      "type": "req",
+      "name": "Sensor Terminal Lifetime",
+      "statement": "The sensor terminal shall meet the RFP operating-life and unit-cost limits for the specified sensor configuration.",
+      "threshold": "≥1 year operating life and ≤$150 per unit (RFP S3-04); objectives ≥3 years / ≤$50",
+      "objective": "≥3 yr / ≤$50, ≤25 g tag variant",
+      "rationale": "RFP Level 0 requirement S3-04, values verbatim. Placement in this tree is proposed (TBR).",
+      "source": "RFP S3-04",
+      "segment": "User equipment",
+      "status": "TBR",
+      "srr": [
+        {
+          "kind": "srr-req",
+          "ref": "S3-04"
+        }
+      ],
+      "verification": "A"
+    },
+    {
+      "id": "L2-1.3.2",
+      "type": "req",
+      "name": "Low-Power Operating Modes",
+      "statement": "The sensor terminal shall enter a reduced-power state between scheduled sensing and communication events.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "T",
+      "threshold": "Reduced-power state demonstrated under specified duty cycle",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.3.3",
+      "type": "req",
+      "name": "Transmission Energy Consumption",
+      "statement": "The sensor terminal shall operate within the energy budget allocated to message transmission during the specified reporting duty cycle.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "A",
+      "threshold": "Energy/message limit TBR from battery capacity and duty-cycle analysis",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.4.1",
+      "type": "req",
+      "name": "Message error detection",
+      "statement": "The data-ingest subsystem shall check received sensor messages for transmission errors before accepting their payloads.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Error detection ≥99% under defined corruption test set (allocated from L1-1.4)",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.4.2",
+      "type": "req",
+      "name": "Data integrity reporting",
+      "statement": "The data-ingest subsystem shall record integrity-check failures for rejected sensor messages.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Log includes identifier, reception time, and failure code",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.4.3",
+      "type": "req",
+      "name": "Message identification",
+      "statement": "Each sensor message shall contain a terminal identifier and a message identifier sufficient to distinguish its origin and sequence.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "I",
+      "threshold": "Unique identifier within defined retention window",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.4.4",
+      "type": "req",
+      "name": "Duplicate Message Detection",
+      "statement": "The data-ingest subsystem shall detect retransmitted duplicates using message identity before forwarding a measurement as a new observation.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Duplicates not counted as new observations in defined test set",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.5.1",
+      "type": "req",
+      "name": "Sensor Message Buffering",
+      "statement": "Sensor terminals and relay nodes designated for buffering shall retain accepted messages while their onward communication path is unavailable.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "T",
+      "threshold": "≥100 messages per designated buffering device (proposed; TBR)",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.5.2",
+      "type": "req",
+      "name": "Deferred Message Transmission",
+      "statement": "A buffering node shall attempt delivery of queued sensor messages when an authorized onward link becomes available.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "T",
+      "threshold": "Queued messages forwarded when service returns",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.5.3",
+      "type": "req",
+      "name": "Buffer Management",
+      "statement": "A buffering node shall apply a defined queue-retention and overflow policy when its storage limit is reached.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "T",
+      "threshold": "Defined priority-aware overflow policy, threshold TBR",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.6.1",
+      "type": "req",
+      "name": "Under-Canopy Communication",
+      "statement": "The sensor communications network shall provide at least one supported communication path for designated sensor terminals positioned beneath forest canopy.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "System",
+      "verification": "D",
+      "threshold": "At least one verified path per designated under-canopy test location",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.6.2",
+      "type": "req",
+      "name": "Canopy Penetration Performance",
+      "statement": "The under-canopy communication link shall satisfy its specified receiver sensitivity margin under the designated canopy propagation test conditions.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "A",
+      "threshold": "Required link margin TBR from field characterization",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.6.3",
+      "type": "req",
+      "name": "Under-Canopy Message Reliability",
+      "statement": "The system shall deliver messages from at least 90% of designated under-canopy test locations during a defined observation period.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "System",
+      "verification": "T",
+      "threshold": "≥90% of designated test locations (allocated L1-1.6)",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.7.1",
+      "type": "req",
+      "name": "Terminal Registration Capacity",
+      "statement": "The network management subsystem shall register and maintain identity and configuration information for at least 10,000 active sensor terminals.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "≥10,000 registered terminals; objective ≥100,000 (RFP S3-02)",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.7.2",
+      "type": "req",
+      "name": "Network Message Capacity",
+      "statement": "The network shall provide sufficient message throughput for the supported population of terminals at the specified routine daily payload.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "System",
+      "verification": "A",
+      "threshold": "≥20 MB/day application payload at 10,000 × 2 kB/day, excluding overhead; objective ≥5 GB/day at 100,000 × 50 kB/day",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.7.3",
+      "type": "req",
+      "name": "Communication Resource Allocation",
+      "statement": "The network control subsystem shall allocate communication opportunities among registered terminals according to a documented access policy.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Space",
+      "verification": "T",
+      "threshold": "Allocation policy demonstrated under full design load",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.8.1",
+      "type": "req",
+      "name": "Ground Data Delivery",
+      "statement": "The ground segment shall forward accepted sensor payloads to the designated monitoring or common operating picture data endpoint.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Accepted messages ingested by designated endpoint",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.8.2",
+      "type": "req",
+      "name": "Message Delivery Latency",
+      "statement": "The system shall time-stamp sensor-message receipt and endpoint delivery to determine end-to-end delivery latency.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Latency recorded for every accepted message in verification run",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.8.3",
+      "type": "req",
+      "name": "Delivery Status Reporting",
+      "statement": "The system shall make available a delivery status for accepted sensor messages to authorized operators.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "D",
+      "threshold": "Delivered / pending / failed status exposed",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.9.1",
+      "type": "req",
+      "name": "Direct Satellite Uplink",
+      "statement": "The system shall accept messages transmitted directly from compatible satellite-capable sensor terminals.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Space",
+      "verification": "T",
+      "threshold": "Direct satellite reception path demonstrated",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.9.2",
+      "type": "req",
+      "name": "Terrestrial Relay Communication",
+      "statement": "The system shall accept messages originating from sensor terminals through compatible terrestrial repeater or gateway nodes.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Terrestrial relay path demonstrated",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.9.3",
+      "type": "req",
+      "name": "Ranger Station Connectivity",
+      "statement": "Designated ranger stations shall receive sensor messages from compatible local sensors or relays and provide an onward route to a monitoring endpoint.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "D",
+      "threshold": "Local reception and onward forwarding demonstrated",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.9.4",
+      "type": "req",
+      "name": "Communication Path Selection",
+      "statement": "Dual-interface network nodes shall select an available authorized onward route from their implemented terrestrial or satellite interfaces.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "User equipment",
+      "verification": "T",
+      "threshold": "Path selection and failover demonstrated on dual-interface devices",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-1.9.5",
+      "type": "req",
+      "name": "Relay Message Forwarding",
+      "statement": "Terrestrial relay nodes shall forward accepted sensor messages to an authorized neighbor, ranger station, or satellite gateway.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Forwarding demonstrated over one or more hops",
+      "rationale": "Allocated implementation capability required to fulfill the parent system requirement."
+    },
+    {
+      "id": "L2-2.6.1",
+      "type": "req",
+      "name": "Operator Authentication",
+      "statement": "The alert control service shall authenticate each operator before permitting the operator to initiate an alert.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Unauthorized operator access rejected in defined test suite",
+      "rationale": "Supports prevention of unauthorized community emergency broadcasts."
+    },
+    {
+      "id": "L2-2.6.2",
+      "type": "req",
+      "name": "Alert Message Authentication",
+      "statement": "The alert control service shall verify the origin and integrity of each received alert request before broadcast acceptance.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "Unverifiable alert requests rejected",
+      "rationale": "Supports prevention of unauthorized community emergency broadcasts."
+    },
+    {
+      "id": "L2-2.6.3",
+      "type": "req",
+      "name": "Unauthorized Transmission Rejection",
+      "statement": "The alert distribution service shall reject alert broadcast requests that do not satisfy the active authorization policy.",
+      "source": "derived",
+      "status": "draft",
+      "segment": "Ground",
+      "verification": "T",
+      "threshold": "100% rejection in defined negative-test suite",
+      "rationale": "Supports prevention of unauthorized community emergency broadcasts."
     },
     {
       "id": "L2-AIR-RELAY",
@@ -142,83 +679,11 @@
       ]
     },
     {
-      "id": "L2-S3-01",
-      "type": "req",
-      "name": "Service area",
-      "statement": "The system shall meet RFP requirement S3-01: Service area.",
-      "threshold": "Entire 3.7M km² basin, including under 30-40 m canopy for sensors",
-      "objective": "All 10 basin countries",
-      "rationale": "RFP Level 0 requirement S3-01, values verbatim. Placement in this tree is proposed (TBR).",
-      "source": "RFP S3-01",
-      "segment": "System",
-      "status": "TBR",
-      "srr": [
-        {
-          "kind": "srr-req",
-          "ref": "S3-01"
-        }
-      ]
-    },
-    {
-      "id": "L2-S3-02",
-      "type": "req",
-      "name": "Sensor terminals served / routine data per terminal per day",
-      "statement": "The system shall meet RFP requirement S3-02: Sensor terminals served / routine data per terminal per day.",
-      "threshold": "≥10,000 / ≥2 kB",
-      "objective": "≥100,000 / ≥50 kB",
-      "rationale": "RFP Level 0 requirement S3-02, values verbatim. Placement in this tree is proposed (TBR).",
-      "source": "RFP S3-02",
-      "segment": "System",
-      "status": "TBR",
-      "srr": [
-        {
-          "kind": "srr-req",
-          "ref": "S3-02"
-        }
-      ]
-    },
-    {
-      "id": "L2-S3-03",
-      "type": "req",
-      "name": "Priority sensor message to the COP",
-      "statement": "The system shall meet RFP requirement S3-03: Priority sensor message to the COP.",
-      "threshold": "≤30 min, ≥95% delivered",
-      "objective": "≤5 min, ≥99% delivered",
-      "rationale": "RFP Level 0 requirement S3-03, values verbatim. Placement in this tree is proposed (TBR).",
-      "source": "RFP S3-03",
-      "segment": "System",
-      "status": "TBR",
-      "srr": [
-        {
-          "kind": "srr-req",
-          "ref": "S3-03"
-        }
-      ]
-    },
-    {
-      "id": "L2-S3-04",
-      "type": "req",
-      "name": "Sensor terminal life on solar or battery / unit cost",
-      "statement": "The system shall meet RFP requirement S3-04: Sensor terminal life on solar or battery / unit cost.",
-      "threshold": "≥1 yr / ≤$150",
-      "objective": "≥3 yr / ≤$50, ≤25 g tag variant",
-      "rationale": "RFP Level 0 requirement S3-04, values verbatim. Placement in this tree is proposed (TBR).",
-      "source": "RFP S3-04",
-      "segment": "User equipment",
-      "status": "TBR",
-      "srr": [
-        {
-          "kind": "srr-req",
-          "ref": "S3-04"
-        }
-      ]
-    },
-    {
       "id": "L2-S3-05",
       "type": "req",
       "name": "Authorized alert to audible at a community receiver",
-      "statement": "The system shall meet RFP requirement S3-05: Authorized alert to audible at a community receiver.",
-      "threshold": "≤10 min for ≥95% of receivers",
+      "statement": "The end-to-end alert system shall produce audible authorized alerts at community receivers within 10 minutes for at least 95% of receivers in the target group.",
+      "threshold": "≤10 min for ≥95% (RFP S3-05); objective ≤3 min for ≥99%",
       "objective": "≤3 min for ≥99%",
       "rationale": "RFP Level 0 requirement S3-05, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-05",
@@ -229,14 +694,15 @@
           "kind": "srr-req",
           "ref": "S3-05"
         }
-      ]
+      ],
+      "verification": "T"
     },
     {
       "id": "L2-S3-06",
       "type": "req",
       "name": "Alert geo-targeting / spoken languages",
-      "statement": "The system shall meet RFP requirement S3-06: Alert geo-targeting / spoken languages.",
-      "threshold": "≤50,000 km² / French + Lingala, Kiswahili, Kikongo, Tshiluba",
+      "statement": "The alert system shall target spoken alerts to selectable geographic regions of no greater than 50,000 km² and support French, Lingala, Kiswahili, Kikongo, and Tshiluba.",
+      "threshold": "≤50,000 km²; listed five languages (RFP S3-06); objectives ≤2,500 km² and ≥10 languages",
       "objective": "≤2,500 km² / ≥10, selected by district",
       "rationale": "RFP Level 0 requirement S3-06, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-06",
@@ -247,14 +713,15 @@
           "kind": "srr-req",
           "ref": "S3-06"
         }
-      ]
+      ],
+      "verification": "T"
     },
     {
       "id": "L2-S3-07",
       "type": "req",
       "name": "Community receiver",
-      "statement": "The system shall meet RFP requirement S3-07: Community receiver.",
-      "threshold": "≤$25, solar or crank, fixed antenna with no pointing",
+      "statement": "The community receiver shall receive alerts without mechanically pointing its antenna and shall operate using solar or manual-crank power within the allocated unit cost.",
+      "threshold": "≤$25 per receiver, solar OR crank, fixed no-pointing antenna (RFP S3-07); objective ≤$10 or existing phone reception",
       "objective": "≤$10, or reception on existing phones",
       "rationale": "RFP Level 0 requirement S3-07, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-07",
@@ -265,14 +732,15 @@
           "kind": "srr-req",
           "ref": "S3-07"
         }
-      ]
+      ],
+      "verification": "D"
     },
     {
       "id": "L2-S3-08",
       "type": "req",
       "name": "Responder two-way terminals",
-      "statement": "The system shall meet RFP requirement S3-08: Responder two-way terminals.",
-      "threshold": "≥500 simultaneous at ≥4.8 kbps",
+      "statement": "The responder communications network shall support at least 500 simultaneous terminals at a data rate of at least 4.8 kbps per terminal.",
+      "threshold": "≥500 simultaneous at ≥4.8 kbps (RFP S3-08); objective ≥5,000 at ≥64 kbps",
       "objective": "≥5,000 at ≥64 kbps",
       "rationale": "RFP Level 0 requirement S3-08, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-08",
@@ -283,14 +751,15 @@
           "kind": "srr-req",
           "ref": "S3-08"
         }
-      ]
+      ],
+      "verification": "T"
     },
     {
       "id": "L2-S3-09",
       "type": "req",
       "name": "Command or acknowledgment delivered to any terminal",
-      "statement": "The system shall meet RFP requirement S3-09: Command or acknowledgment delivered to any terminal.",
-      "threshold": "≤6 h",
+      "statement": "The system shall deliver a command or acknowledgment to an addressed responder terminal within 6 hours under specified service conditions.",
+      "threshold": "≤6 hours (RFP S3-09); objective ≤15 minutes",
       "objective": "≤15 min",
       "rationale": "RFP Level 0 requirement S3-09, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-09",
@@ -301,14 +770,15 @@
           "kind": "srr-req",
           "ref": "S3-09"
         }
-      ]
+      ],
+      "verification": "T"
     },
     {
       "id": "L2-S3-10",
       "type": "req",
       "name": "Service availability in heavy tropical rain / service life",
-      "statement": "The system shall meet RFP requirement S3-10: Service availability in heavy tropical rain / service life.",
-      "threshold": "≥99.5% / 10 yr",
+      "statement": "The system shall maintain communication service availability of at least 99.5% in the specified heavy tropical rain environment over a planned 10-year service life.",
+      "threshold": "≥99.5% service availability / ≥10 year service life (RFP S3-10); objectives ≥99.9% / 15 years",
       "objective": "≥99.9% / 15 yr",
       "rationale": "RFP Level 0 requirement S3-10, values verbatim. Placement in this tree is proposed (TBR).",
       "source": "RFP S3-10",
@@ -319,7 +789,39 @@
           "kind": "srr-req",
           "ref": "S3-10"
         }
-      ]
+      ],
+      "verification": "A"
+    },
+    {
+      "id": "L3-2.3.2.2",
+      "type": "req",
+      "name": "Loudspeaker",
+      "statement": "The community receiver shall reproduce received emergency alerts through an integrated loudspeaker.",
+      "source": "derived"
+    },
+    {
+      "id": "L3-2.3.2.3",
+      "type": "req",
+      "name": "Solar power",
+      "statement": "The community receiver shall operate using electrical power supplied by solar panels. ",
+      "source": "derived",
+      "status": "draft"
+    },
+    {
+      "id": "L3-2.3.2.4",
+      "type": "req",
+      "name": "Manual power",
+      "statement": "The community receiver shall support manual electrical power generation through a hand crank. ",
+      "source": "derived",
+      "status": "draft"
+    },
+    {
+      "id": "L3-2.3.2.5",
+      "type": "req",
+      "name": "Antenna transmission",
+      "statement": "The community receiver shall receive satellite transmissions without requiring mechanical antenna pointing or tracking. ",
+      "source": "derived",
+      "status": "draft"
     },
     {
       "id": "L3-ALERT-GND",
@@ -441,33 +943,1130 @@
       "statement": "Give rangers and responders two-way communications that survive loss of terrestrial networks.",
       "source": "mission",
       "status": "agreed"
+    },
+    {
+      "id": "L3-1.1.1.1",
+      "type": "req",
+      "name": "Coverage Map",
+      "statement": "The network planning subsystem shall maintain a version-controlled map of designated sensor service locations.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Service area to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.1.1.2",
+      "type": "req",
+      "name": "Coverage Assessment",
+      "statement": "The coverage-analysis subsystem shall identify which designated deployment locations meet the allocated link availability criterion.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Service area to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.1.2.1",
+      "type": "req",
+      "name": "Terminal Service Provisioning",
+      "statement": "The network shall provision registered sensor terminals with the communication service configuration required for routine reporting.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Terminal Connectivity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.1.2.2",
+      "type": "req",
+      "name": "Routine Payload Accounting",
+      "statement": "The network shall record the routine payload volume accepted per sensor terminal over each reporting day.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Terminal Connectivity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.1.3.1",
+      "type": "req",
+      "name": "Sensor Packet Decode",
+      "statement": "The receiving communications node shall decode messages from a supported sensor-terminal waveform or terrestrial interface.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Message Reception to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.1.3.2",
+      "type": "req",
+      "name": "Reception Metadata",
+      "statement": "The receiving node shall attach reception time and originating interface metadata to each accepted sensor message.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Message Reception to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.1.1",
+      "type": "req",
+      "name": "Priority Field Decode",
+      "statement": "The ingest function shall extract the priority indicator from the sensor message header.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message Priority Classification to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.1.2",
+      "type": "req",
+      "name": "Priority Class Validation",
+      "statement": "The ingest function shall reject unsupported priority indicators or map them according to the approved class policy.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message Priority Classification to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.2.1",
+      "type": "req",
+      "name": "Priority Queue",
+      "statement": "The network scheduler shall maintain a queue for priority sensor traffic distinct from routine traffic.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Priority Message Scheduling to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.2.2",
+      "type": "req",
+      "name": "Contention Arbitration",
+      "statement": "The network scheduler shall select priority-queue traffic ahead of routine traffic when both are eligible for transmission.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Priority Message Scheduling to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.3.1",
+      "type": "req",
+      "name": "Priority Timestamping",
+      "statement": "The network shall record the time at which each priority message enters the defined end-to-end delivery interval.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Priority Message Delivery to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.2.3.2",
+      "type": "req",
+      "name": "Priority Delivery Accounting",
+      "statement": "The monitoring endpoint shall report the percentage of priority messages delivered inside the 30-minute limit.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Priority Message Delivery to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.1.1",
+      "type": "req",
+      "name": "Duty-Cycle Profile",
+      "statement": "The sensor terminal shall implement the approved sensing and reporting duty-cycle profile used for service-life analysis.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Terminal Lifetime to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.1.2",
+      "type": "req",
+      "name": "Terminal Cost Accounting",
+      "statement": "The sensor equipment cost model shall account for the unit hardware bill of materials at the defined production quantity.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Terminal Lifetime to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.2.1",
+      "type": "req",
+      "name": "Sleep Mode",
+      "statement": "The terminal controller shall place nonessential electronics in a reduced-power state between scheduled activities.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Low-Power Operating Modes to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.2.2",
+      "type": "req",
+      "name": "Wake Scheduling",
+      "statement": "The terminal controller shall wake sensing and radio subsystems for scheduled observations and network access windows.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Low-Power Operating Modes to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.3.1",
+      "type": "req",
+      "name": "Transmit Power Control",
+      "statement": "The terminal radio shall use an authorized transmit-power setting suitable for the selected link mode.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Transmission Energy Consumption to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.3.3.2",
+      "type": "req",
+      "name": "Energy Budget Monitoring",
+      "statement": "The terminal power subsystem shall provide transmit-mode current and duration measurements for energy-budget verification.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Transmission Energy Consumption to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.1.1",
+      "type": "req",
+      "name": "Integrity Check Field",
+      "statement": "A sensor message shall contain an integrity-check field supported by the receiving data-ingest subsystem.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message error detection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "I",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.1.2",
+      "type": "req",
+      "name": "Corrupt Packet Rejection",
+      "statement": "The ingest subsystem shall reject sensor payloads that fail the configured integrity check.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message error detection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.2.1",
+      "type": "req",
+      "name": "Integrity Event Log",
+      "statement": "The ingest subsystem shall record an event for each message rejected by integrity validation.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Data integrity reporting to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.2.2",
+      "type": "req",
+      "name": "Integrity Metrics",
+      "statement": "The operations interface shall present counts of accepted and integrity-rejected messages for a selected reporting interval.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Data integrity reporting to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.3.1",
+      "type": "req",
+      "name": "Device Identifier",
+      "statement": "Each sensor terminal shall insert its assigned terminal identifier into outgoing messages.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message identification to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.3.2",
+      "type": "req",
+      "name": "Sequence Identifier",
+      "statement": "Each sensor terminal shall assign a message identifier distinguishable from its other messages in the configured retention window.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message identification to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.4.1",
+      "type": "req",
+      "name": "Duplicate Lookup",
+      "statement": "The ingest subsystem shall compare each accepted message identifier against identifiers retained within the deduplication window.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Duplicate Message Detection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.4.4.2",
+      "type": "req",
+      "name": "Duplicate Disposition",
+      "statement": "The ingest subsystem shall mark matched duplicate payloads without publishing a second observation to the monitoring endpoint.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Duplicate Message Detection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.1.1",
+      "type": "req",
+      "name": "Persistent Queue",
+      "statement": "A buffering node shall retain queued sensor records across a temporary loss of its onward radio link.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Message Buffering to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.1.2",
+      "type": "req",
+      "name": "Queue Capacity",
+      "statement": "A designated buffering node shall store at least 100 sensor messages of the defined maximum test size.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Sensor Message Buffering to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.2.1",
+      "type": "req",
+      "name": "Link Recovery Detection",
+      "statement": "A buffering node shall detect when an authorized onward communication path is available again.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Deferred Message Transmission to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.2.2",
+      "type": "req",
+      "name": "Queued Message Retry",
+      "statement": "A buffering node shall retry pending messages according to the defined retry policy after link recovery.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Deferred Message Transmission to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.3.1",
+      "type": "req",
+      "name": "Queue Priority Order",
+      "statement": "A buffering node shall preserve priority ordering when selecting queued messages for forwarding.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Buffer Management to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.5.3.2",
+      "type": "req",
+      "name": "Overflow Event",
+      "statement": "A buffering node shall record or signal a queue-overflow event when an incoming record cannot be retained.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Buffer Management to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.1.1",
+      "type": "req",
+      "name": "Canopy Relay Access",
+      "statement": "A compatible under-canopy terminal shall exchange a sensor message with a designated terrestrial relay or gateway in the assigned deployment test configuration.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Under-Canopy Communication to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.1.2",
+      "type": "req",
+      "name": "Direct Link Option",
+      "statement": "A compatible satellite-capable terminal shall exchange a sensor message directly with the space network where the defined link conditions permit.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Under-Canopy Communication to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.2.1",
+      "type": "req",
+      "name": "Canopy Link Budget",
+      "statement": "The communications design shall include the measured or modeled vegetation loss for each approved deployment class.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Canopy Penetration Performance to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.2.2",
+      "type": "req",
+      "name": "Propagation Field Test",
+      "statement": "The communications subsystem shall demonstrate receive-link margin at representative designated canopy test sites.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Canopy Penetration Performance to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.3.1",
+      "type": "req",
+      "name": "Canopy Test Logging",
+      "statement": "The field-test configuration shall log attempted and successfully delivered messages at each designated canopy location.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Under-Canopy Message Reliability to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.6.3.2",
+      "type": "req",
+      "name": "Location Success Assessment",
+      "statement": "The test analysis shall classify each designated canopy test location as passing or failing the defined delivery criterion.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Under-Canopy Message Reliability to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.1.1",
+      "type": "req",
+      "name": "Registration Database",
+      "statement": "The network registry shall retain a unique record for each active registered sensor terminal.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Terminal Registration Capacity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.1.2",
+      "type": "req",
+      "name": "Registration Load",
+      "statement": "The network registry shall support at least 10,000 simultaneously active registered terminal records.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Terminal Registration Capacity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.2.1",
+      "type": "req",
+      "name": "Daily Payload Budget",
+      "statement": "The communications capacity analysis shall include at least 20 MB per day of routine sensor application payload at minimum mission scale.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Network Message Capacity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.2.2",
+      "type": "req",
+      "name": "Traffic Overhead Budget",
+      "statement": "The network capacity analysis shall account for protocol overhead, acknowledgments, retries, and relay traffic.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Network Message Capacity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.3.1",
+      "type": "req",
+      "name": "Access Control Schedule",
+      "statement": "The network controller shall allocate transmission opportunities to eligible sensor terminals using a defined access-control rule.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Communication Resource Allocation to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.7.3.2",
+      "type": "req",
+      "name": "Load Fairness",
+      "statement": "The network controller shall report allocation outcomes by sensor terminal or service class over a defined evaluation interval.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Communication Resource Allocation to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.1.1",
+      "type": "req",
+      "name": "Data Gateway Interface",
+      "statement": "The ground gateway shall expose an interface for forwarding validated sensor messages to the designated monitoring endpoint.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Ground Data Delivery to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.1.2",
+      "type": "req",
+      "name": "Endpoint Receipt",
+      "statement": "The ground gateway shall register acceptance or rejection feedback from the monitoring endpoint where the interface supports it.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Ground Data Delivery to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.2.1",
+      "type": "req",
+      "name": "Ingress Timestamp",
+      "statement": "The system shall record the time of valid message acceptance at the defined network entry boundary.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message Delivery Latency to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.2.2",
+      "type": "req",
+      "name": "Delivery Timestamp",
+      "statement": "The system shall record the time of accepted message receipt at the designated endpoint.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Message Delivery Latency to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.3.1",
+      "type": "req",
+      "name": "Message State Tracking",
+      "statement": "The message-tracking service shall maintain a state for each accepted sensor message until its defined disposition.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Delivery Status Reporting to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.8.3.2",
+      "type": "req",
+      "name": "Operator Status View",
+      "statement": "The operations interface shall display message delivery state to an authorized operator.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Delivery Status Reporting to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.1.1",
+      "type": "req",
+      "name": "Satellite RF Interface",
+      "statement": "A direct-to-satellite terminal shall transmit sensor messages using the approved satellite uplink interface.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Direct Satellite Uplink to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.1.2",
+      "type": "req",
+      "name": "Spaceborne Sensor Receiver",
+      "statement": "The satellite communications payload shall decode sensor messages received from compatible direct-uplink terminals.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Direct Satellite Uplink to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.2.1",
+      "type": "req",
+      "name": "Local Sensor Radio",
+      "statement": "A terrestrial-mode sensor terminal shall transmit sensor messages through the approved local radio interface.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Terrestrial Relay Communication to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.2.2",
+      "type": "req",
+      "name": "Repeater Receive Interface",
+      "statement": "A terrestrial relay shall receive messages from compatible local sensor interfaces.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Terrestrial Relay Communication to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.3.1",
+      "type": "req",
+      "name": "Ranger Gateway Ingest",
+      "statement": "The ranger station gateway shall accept valid sensor records from compatible local sensor and relay devices.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Ranger Station Connectivity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.3.2",
+      "type": "req",
+      "name": "Ranger Gateway Backhaul",
+      "statement": "The ranger station gateway shall forward accepted sensor messages using an available authorized backhaul connection.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Ranger Station Connectivity to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.4.1",
+      "type": "req",
+      "name": "Path Availability Check",
+      "statement": "A dual-interface node shall assess availability of each supported authorized onward communication path before route selection.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Communication Path Selection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.4.2",
+      "type": "req",
+      "name": "Path Failover",
+      "statement": "A dual-interface node shall attempt an alternate authorized path after the current path is declared unavailable.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Communication Path Selection to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.5.1",
+      "type": "req",
+      "name": "Relay Destination Routing",
+      "statement": "A relay node shall identify an authorized next-hop destination for each message accepted for forwarding.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Relay Message Forwarding to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L3-1.9.5.2",
+      "type": "req",
+      "name": "Hop Limit Protection",
+      "statement": "Relay nodes shall apply a configured hop limit or equivalent loop-prevention rule to forwarded sensor messages.",
+      "threshold": "As specified by parent / interface definition (allocation TBR)",
+      "rationale": "Allocates Relay Message Forwarding to a verifiable subsystem function.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.1.1",
+      "type": "req",
+      "name": "Alert Intake",
+      "statement": "The ground segment shall accept emergency alert requests submitted by authorized alerting authorities.",
+      "threshold": "Alert requests logged with source and receipt time",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.1.2",
+      "type": "req",
+      "name": "Broadcast Distribution",
+      "statement": "The space and ground communications network shall distribute accepted alert payloads toward their designated community receiver groups.",
+      "threshold": "Distribution evidenced in end-to-end delivery trial",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.2.1",
+      "type": "req",
+      "name": "Target Group Resolution",
+      "statement": "The alert distribution service shall determine intended community receiver groups from the approved geographic alert region.",
+      "threshold": "Mapping accuracy criterion TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.3.1",
+      "type": "req",
+      "name": "Spoken Alert Playback",
+      "statement": "The community receiver shall reproduce an accepted alert payload as intelligible spoken audio.",
+      "threshold": "Audibility/intelligibility criteria TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.4.1",
+      "type": "req",
+      "name": "Reception Acknowledgment",
+      "statement": "Community receiver equipment shall generate a reception acknowledgment when it successfully accepts an alert, using the specified acknowledgment interface.",
+      "threshold": "Acknowledgment generation time TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.4.2",
+      "type": "req",
+      "name": "Acknowledgment Return Path",
+      "statement": "The system shall provide a communications path for transmitting community reception acknowledgments to the alert control service.",
+      "threshold": "Acknowledgment return-path reliability TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.4.3",
+      "type": "req",
+      "name": "Acknowledgment Monitoring",
+      "statement": "The alert control service shall identify targeted receivers for which a reception acknowledgment has not been recorded by the defined deadline.",
+      "threshold": "Acknowledgment deadline TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.5.1",
+      "type": "req",
+      "name": "Independent Alert Path",
+      "statement": "The alert communications system shall provide a satellite-based path to designated communities during loss of terrestrial communications infrastructure.",
+      "threshold": "Loss-of-terrestrial-service test conditions TBR",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.7.1",
+      "type": "req",
+      "name": "Alert Traffic Queue",
+      "statement": "The network scheduler shall maintain emergency alert traffic separately from routine sensor-message traffic.",
+      "threshold": "Distinct queue classes demonstrated",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.7.2",
+      "type": "req",
+      "name": "Alert Preemption",
+      "statement": "The network scheduler shall give eligible emergency alert traffic precedence over routine sensor traffic during contention.",
+      "threshold": "Priority arbitration verified under contention",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Space",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.8.1",
+      "type": "req",
+      "name": "Language Assignment",
+      "statement": "The alert control service shall associate each participating community with its designated alert language or languages.",
+      "threshold": "All registered communities have assigned language set",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-2.8.2",
+      "type": "req",
+      "name": "Spoken Language Delivery",
+      "statement": "The alert delivery chain shall distribute alert audio or equivalent spoken-language content in the language selected for each targeted community.",
+      "threshold": "French plus four listed languages at threshold (RFP S3-06)",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.1.1",
+      "type": "req",
+      "name": "Responder Session Setup",
+      "statement": "The communications network shall establish uplink and downlink communication sessions for authorized responder terminals.",
+      "threshold": "≥500 simultaneous sessions at ≥4.8 kbps each (RFP S3-08)",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.1.2",
+      "type": "req",
+      "name": "Responder Terminal Interface",
+      "statement": "A responder terminal shall transmit and receive communications through an approved satellite or supported relay interface.",
+      "threshold": "Two-way terminal interoperability demonstration",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.1.3",
+      "type": "req",
+      "name": "Coordination Endpoint Interface",
+      "statement": "The ground segment shall connect responder traffic with the designated coordination endpoint.",
+      "threshold": "Two-way messages exchanged with coordination endpoint",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.2.1",
+      "type": "req",
+      "name": "Command Routing",
+      "statement": "The network shall route an authorized command toward its addressed responder terminal.",
+      "threshold": "Routing succeeds in defined coverage conditions",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.2.2",
+      "type": "req",
+      "name": "Responder Acknowledgment",
+      "statement": "The responder terminal shall transmit an acknowledgment for received commands requiring confirmation.",
+      "threshold": "Acknowledgment return mechanism demonstrated",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "User equipment",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.2.3",
+      "type": "req",
+      "name": "Deferred Command Delivery",
+      "statement": "The command service shall queue commands when the addressed terminal is unavailable and forward them during the next valid connection opportunity.",
+      "threshold": "≤6 h to terminal (RFP S3-09), under defined service conditions",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.3.1",
+      "type": "req",
+      "name": "Terrestrial Outage Operation",
+      "statement": "The responder communications service shall maintain supported communication sessions through a satellite backhaul path when terrestrial communication links fail.",
+      "threshold": "Tested under simulated terrestrial network outage",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "D",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.3.2",
+      "type": "req",
+      "name": "Rain Availability",
+      "statement": "The system shall meet the required service availability in specified heavy-tropical-rain operating conditions.",
+      "threshold": "≥99.5%; objective ≥99.9% (RFP S3-10)",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
+    },
+    {
+      "id": "L2-3.3.3",
+      "type": "req",
+      "name": "System Service Life",
+      "statement": "The system shall be designed to sustain required service over the mission service life with defined maintenance and replacement activities.",
+      "threshold": "≥10 years; objective ≥15 years (RFP S3-10)",
+      "rationale": "Derived capability supporting the parent requirement.",
+      "source": "derived",
+      "verification": "A",
+      "segment": "System",
+      "status": "draft"
     }
   ],
   "links": [
     {
       "parent": "L1-1.1",
-      "child": "L2-S3-01",
-      "ord": 1
+      "child": "L2-1.1.2",
+      "ord": 2
     },
     {
       "parent": "L1-1.1",
-      "child": "L2-S3-02",
+      "child": "L2-1.1.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.1",
+      "child": "L2-1.1.1",
+      "ord": 4
+    },
+    {
+      "parent": "L1-1.2",
+      "child": "L2-1.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-1.2",
+      "child": "L2-1.2.2",
       "ord": 2
     },
     {
       "parent": "L1-1.2",
-      "child": "L2-S3-03",
+      "child": "L2-1.2.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.3",
+      "child": "L2-1.3.1",
       "ord": 1
     },
     {
       "parent": "L1-1.3",
-      "child": "L2-S3-04",
+      "child": "L2-1.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.3",
+      "child": "L2-1.3.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.4",
+      "child": "L2-1.4.1",
       "ord": 1
     },
     {
-      "parent": "L1-2.1",
-      "child": "L2-S3-01",
+      "parent": "L1-1.4",
+      "child": "L2-1.4.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.4",
+      "child": "L2-1.4.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.4",
+      "child": "L2-1.4.4",
+      "ord": 4
+    },
+    {
+      "parent": "L1-1.5",
+      "child": "L2-1.5.1",
       "ord": 1
+    },
+    {
+      "parent": "L1-1.5",
+      "child": "L2-1.5.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.5",
+      "child": "L2-1.5.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.6",
+      "child": "L2-1.6.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-1.6",
+      "child": "L2-1.6.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.6",
+      "child": "L2-1.6.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.7",
+      "child": "L2-1.7.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-1.7",
+      "child": "L2-1.7.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.7",
+      "child": "L2-1.7.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.8",
+      "child": "L2-1.8.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-1.8",
+      "child": "L2-1.8.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.8",
+      "child": "L2-1.8.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.9",
+      "child": "L2-1.9.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-1.9",
+      "child": "L2-1.9.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-1.9",
+      "child": "L2-1.9.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-1.9",
+      "child": "L2-1.9.4",
+      "ord": 4
+    },
+    {
+      "parent": "L1-1.9",
+      "child": "L2-1.9.5",
+      "ord": 5
     },
     {
       "parent": "L1-2.1",
@@ -498,6 +2097,21 @@
       "parent": "L1-2.5",
       "child": "L2-S3-10",
       "ord": 1
+    },
+    {
+      "parent": "L1-2.6",
+      "child": "L2-2.6.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.6",
+      "child": "L2-2.6.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.6",
+      "child": "L2-2.6.3",
+      "ord": 3
     },
     {
       "parent": "L1-3.1",
@@ -540,6 +2154,26 @@
       "ord": 1
     },
     {
+      "parent": "L2-S3-07",
+      "child": "L3-2.3.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-S3-07",
+      "child": "L3-2.3.2.3",
+      "ord": 3
+    },
+    {
+      "parent": "L2-S3-07",
+      "child": "L3-2.3.2.4",
+      "ord": 4
+    },
+    {
+      "parent": "L2-S3-07",
+      "child": "L3-2.3.2.5",
+      "ord": 5
+    },
+    {
       "parent": "L2-S3-10",
       "child": "L3-LAUNCH",
       "ord": 1
@@ -570,6 +2204,36 @@
       "ord": 3
     },
     {
+      "parent": "MO-1",
+      "child": "L1-1.4",
+      "ord": 4
+    },
+    {
+      "parent": "MO-1",
+      "child": "L1-1.5",
+      "ord": 5
+    },
+    {
+      "parent": "MO-1",
+      "child": "L1-1.6",
+      "ord": 6
+    },
+    {
+      "parent": "MO-1",
+      "child": "L1-1.7",
+      "ord": 7
+    },
+    {
+      "parent": "MO-1",
+      "child": "L1-1.8",
+      "ord": 8
+    },
+    {
+      "parent": "MO-1",
+      "child": "L1-1.9",
+      "ord": 9
+    },
+    {
       "parent": "MO-2",
       "child": "L1-2.1",
       "ord": 1
@@ -595,6 +2259,21 @@
       "ord": 5
     },
     {
+      "parent": "MO-2",
+      "child": "L1-2.6",
+      "ord": 6
+    },
+    {
+      "parent": "MO-2",
+      "child": "L1-2.7",
+      "ord": 7
+    },
+    {
+      "parent": "MO-2",
+      "child": "L1-2.8",
+      "ord": 8
+    },
+    {
       "parent": "MO-3",
       "child": "L1-3.1",
       "ord": 1
@@ -607,6 +2286,416 @@
     {
       "parent": "MO-3",
       "child": "L1-3.3",
+      "ord": 3
+    },
+    {
+      "parent": "L2-1.1.1",
+      "child": "L3-1.1.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.1.1",
+      "child": "L3-1.1.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.1.2",
+      "child": "L3-1.1.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.1.2",
+      "child": "L3-1.1.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.1.3",
+      "child": "L3-1.1.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.1.3",
+      "child": "L3-1.1.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.2.1",
+      "child": "L3-1.2.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.2.1",
+      "child": "L3-1.2.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.2.2",
+      "child": "L3-1.2.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.2.2",
+      "child": "L3-1.2.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.2.3",
+      "child": "L3-1.2.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.2.3",
+      "child": "L3-1.2.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.3.1",
+      "child": "L3-1.3.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.3.1",
+      "child": "L3-1.3.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.3.2",
+      "child": "L3-1.3.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.3.2",
+      "child": "L3-1.3.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.3.3",
+      "child": "L3-1.3.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.3.3",
+      "child": "L3-1.3.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.4.1",
+      "child": "L3-1.4.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.4.1",
+      "child": "L3-1.4.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.4.2",
+      "child": "L3-1.4.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.4.2",
+      "child": "L3-1.4.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.4.3",
+      "child": "L3-1.4.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.4.3",
+      "child": "L3-1.4.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.4.4",
+      "child": "L3-1.4.4.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.4.4",
+      "child": "L3-1.4.4.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.5.1",
+      "child": "L3-1.5.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.5.1",
+      "child": "L3-1.5.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.5.2",
+      "child": "L3-1.5.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.5.2",
+      "child": "L3-1.5.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.5.3",
+      "child": "L3-1.5.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.5.3",
+      "child": "L3-1.5.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.6.1",
+      "child": "L3-1.6.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.6.1",
+      "child": "L3-1.6.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.6.2",
+      "child": "L3-1.6.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.6.2",
+      "child": "L3-1.6.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.6.3",
+      "child": "L3-1.6.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.6.3",
+      "child": "L3-1.6.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.7.1",
+      "child": "L3-1.7.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.7.1",
+      "child": "L3-1.7.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.7.2",
+      "child": "L3-1.7.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.7.2",
+      "child": "L3-1.7.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.7.3",
+      "child": "L3-1.7.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.7.3",
+      "child": "L3-1.7.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.8.1",
+      "child": "L3-1.8.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.8.1",
+      "child": "L3-1.8.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.8.2",
+      "child": "L3-1.8.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.8.2",
+      "child": "L3-1.8.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.8.3",
+      "child": "L3-1.8.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.8.3",
+      "child": "L3-1.8.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.9.1",
+      "child": "L3-1.9.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.9.1",
+      "child": "L3-1.9.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.9.2",
+      "child": "L3-1.9.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.9.2",
+      "child": "L3-1.9.2.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.9.3",
+      "child": "L3-1.9.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.9.3",
+      "child": "L3-1.9.3.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.9.4",
+      "child": "L3-1.9.4.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.9.4",
+      "child": "L3-1.9.4.2",
+      "ord": 2
+    },
+    {
+      "parent": "L2-1.9.5",
+      "child": "L3-1.9.5.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-1.9.5",
+      "child": "L3-1.9.5.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.1",
+      "child": "L2-2.1.1",
+      "ord": 3
+    },
+    {
+      "parent": "L1-2.1",
+      "child": "L2-2.1.2",
+      "ord": 4
+    },
+    {
+      "parent": "L1-2.2",
+      "child": "L2-2.2.1",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.3",
+      "child": "L2-2.3.1",
+      "ord": 4
+    },
+    {
+      "parent": "L1-2.4",
+      "child": "L2-2.4.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.4",
+      "child": "L2-2.4.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.4",
+      "child": "L2-2.4.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-2.5",
+      "child": "L2-2.5.1",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.7",
+      "child": "L2-2.7.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.7",
+      "child": "L2-2.7.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.8",
+      "child": "L2-2.8.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.8",
+      "child": "L2-2.8.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-3.1",
+      "child": "L2-3.1.1",
+      "ord": 2
+    },
+    {
+      "parent": "L1-3.1",
+      "child": "L2-3.1.2",
+      "ord": 3
+    },
+    {
+      "parent": "L1-3.1",
+      "child": "L2-3.1.3",
+      "ord": 4
+    },
+    {
+      "parent": "L1-3.2",
+      "child": "L2-3.2.1",
+      "ord": 2
+    },
+    {
+      "parent": "L1-3.2",
+      "child": "L2-3.2.2",
+      "ord": 3
+    },
+    {
+      "parent": "L1-3.2",
+      "child": "L2-3.2.3",
+      "ord": 4
+    },
+    {
+      "parent": "L1-3.3",
+      "child": "L2-3.3.1",
+      "ord": 3
+    },
+    {
+      "parent": "L1-3.3",
+      "child": "L2-3.3.2",
+      "ord": 4
+    },
+    {
+      "parent": "L1-3.3",
+      "child": "L2-3.3.3",
+      "ord": 5
+    },
+    {
+      "parent": "L1-2.8",
+      "child": "L2-S3-06",
       "ord": 3
     }
   ]
