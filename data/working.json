@@ -59,7 +59,8 @@
       "verification": "T",
       "segment": "System",
       "fn": [
-        "F3"
+        "F3",
+        "F4"
       ]
     },
     {
@@ -561,7 +562,8 @@
       "segment": "Ground",
       "status": "draft",
       "fn": [
-        "F3"
+        "F3",
+        "F4"
       ]
     },
     {
@@ -607,7 +609,8 @@
       "segment": "Ground",
       "status": "draft",
       "fn": [
-        "F3"
+        "F3",
+        "F4"
       ]
     },
     {
@@ -763,7 +766,8 @@
       "segment": "Ground",
       "status": "draft",
       "fn": [
-        "F3"
+        "F3",
+        "F4"
       ]
     },
     {
@@ -1611,6 +1615,7 @@
       "type": "req",
       "name": "Airborne relay interface",
       "statement": "The system shall interface with airborne relay platforms for regional coverage during terrestrial outages.",
+      "threshold": "≥95% successful delivery of ≥100 valid test messages per declared supported link scenario, with ≥6 dB calculated link margin where applicable (proposed; actual waveform, band and propagation conditions must be declared).",
       "rationale": "Example: complementary A-1 relay; overlap TBR with the A-1 team.",
       "source": "interface",
       "verification": "D",
@@ -1626,8 +1631,7 @@
       "fn": [
         "F2",
         "F9"
-      ],
-      "threshold": "≥95% successful delivery of ≥100 valid test messages per declared supported link scenario, with ≥6 dB calculated link margin where applicable (proposed; actual waveform, band and propagation conditions must be declared)."
+      ]
     },
     {
       "id": "L2-S3-05",
@@ -3066,12 +3070,12 @@
       "type": "req",
       "name": "Loudspeaker",
       "statement": "The community receiver shall reproduce received emergency alerts through an integrated loudspeaker.",
+      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion).",
       "source": "derived",
+      "verification": "A",
       "fn": [
         "F7"
-      ],
-      "verification": "A",
-      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion)."
+      ]
     },
     {
       "id": "L3-2.3.2.3",
@@ -4421,6 +4425,7 @@
       "type": "req",
       "name": "CAP ingest",
       "statement": "The ground segment shall validate and ingest CAP alerts issued by authorized national agencies.",
+      "threshold": "100% correct accept/reject, classification, identity preservation, or prioritization across the approved nominal, malformed and boundary-case test vectors (proposed verification acceptance).",
       "rationale": "Example: alert authority stays with national agencies (constraint).",
       "source": "derived",
       "verification": "T",
@@ -4435,14 +4440,14 @@
       ],
       "fn": [
         "F5"
-      ],
-      "threshold": "100% correct accept/reject, classification, identity preservation, or prioritization across the approved nominal, malformed and boundary-case test vectors (proposed verification acceptance)."
+      ]
     },
     {
       "id": "L3-ALERT-RX",
       "type": "req",
       "name": "Receiver plays alerts",
       "statement": "The community receiver shall play received alerts as audible speech.",
+      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion).",
       "rationale": "Legacy receiver playback example; overlaps with L2-2.3.1 and L3-2.3.2.2; candidate for consolidation after confirming downstream Level 4 links.",
       "source": "derived",
       "verification": "D",
@@ -4451,14 +4456,14 @@
       "example": true,
       "fn": [
         "F7"
-      ],
-      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion)."
+      ]
     },
     {
       "id": "L3-ALERT-SPC",
       "type": "req",
       "name": "Broadcast relay",
       "statement": "The space segment shall relay geo-targeted alert broadcasts to community receivers.",
+      "threshold": "Authorized alert targeting area ≤50,000 km²; objective ≤2,500 km² (RFP S3-06); test boundary cases against georeferenced reference polygons.",
       "rationale": "Example: allocation of the broadcast leg to the space segment.",
       "source": "derived",
       "verification": "A",
@@ -4477,14 +4482,14 @@
       ],
       "fn": [
         "F6"
-      ],
-      "threshold": "Authorized alert targeting area ≤50,000 km²; objective ≤2,500 km² (RFP S3-06); test boundary cases against georeferenced reference polygons."
+      ]
     },
     {
       "id": "L3-LAUNCH",
       "type": "req",
       "name": "Launch to orbit",
       "statement": "The launch segment shall deliver the space segment to its operational orbit (orbit TBD by trade study).",
+      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion).",
       "rationale": "Launch-to-orbit is not a direct decomposition of tropical rain availability or service life. Requires placement under an appropriate system/space deployment parent after architecture selection.",
       "source": "derived",
       "verification": "I",
@@ -4500,8 +4505,7 @@
       "fn": [
         "F2",
         "F6"
-      ],
-      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion)."
+      ]
     },
     {
       "id": "L3-S3-05.1",
@@ -5287,6 +5291,7 @@
       "type": "req",
       "name": "Receiver loudness",
       "statement": "The community receiver shall produce speech at a sound level of TBD dB at TBD m.",
+      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion).",
       "rationale": "Example: placeholder value; set by analysis.",
       "source": "derived",
       "verification": "T",
@@ -5295,14 +5300,14 @@
       "example": true,
       "fn": [
         "F7"
-      ],
-      "threshold": "Pass 100% of the approved nominal, boundary and fault-injection functional test cases with logged inputs, outputs and acceptance decisions (proposed verification criterion)."
+      ]
     },
     {
       "id": "L4-RX-POWER",
       "type": "req",
       "name": "Receiver power",
       "statement": "The community receiver shall operate from solar or hand-crank power.",
+      "threshold": "Demonstrate the declared duty cycle and power budget over a representative ≥24 h profile; project battery life ≥1 year for sensor terminals (RFP S3-04); receiver off-grid supply must be solar OR hand-crank (RFP S3-07), as applicable.",
       "rationale": "Example: derived from S3-07 (solar or crank).",
       "source": "derived",
       "verification": "D",
@@ -5311,8 +5316,7 @@
       "example": true,
       "fn": [
         "F7"
-      ],
-      "threshold": "Demonstrate the declared duty cycle and power budget over a representative ≥24 h profile; project battery life ≥1 year for sensor terminals (RFP S3-04); receiver off-grid supply must be solar OR hand-crank (RFP S3-07), as applicable."
+      ]
     },
     {
       "id": "MO-1",
@@ -5355,6 +5359,141 @@
       "fn": [
         "F9",
         "F8"
+      ]
+    },
+    {
+      "id": "L1-2.9",
+      "type": "req",
+      "name": "Environmental Hazard Assessment",
+      "statement": "The environmental assessment subsystem shall retrieve and evaluate relevant environmental observations and provide authorized decision-makers with an evidence-based hazard assessment and alert recommendation.",
+      "threshold": "For 100% of approved representative test scenarios, produce an assessment with source references, threshold results, correlation results, severity, affected location, and recommendation state.",
+      "rationale": "Closes the functional gap between data processing (F3) and alert generation (F5) without mandating autonomous alert issuance.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.1",
+      "type": "req",
+      "name": "Relevant Data Retrieval and Screening",
+      "statement": "The environmental assessment subsystem shall retrieve observations from configured environmental data sources and identify invalid or stale observations before hazard evaluation.",
+      "threshold": "Retrieve records from every configured source in the approved integration test; correctly flag 100% of invalid and stale test observations using source-specific validity and age rules.",
+      "rationale": "Prevents stale or corrupted observations from being treated as current evidence of hazardous conditions.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.2",
+      "type": "req",
+      "name": "Environmental Threshold Comparison",
+      "statement": "The environmental assessment subsystem shall compare eligible environmental measurements with approved hazard thresholds applicable to their measurement type and location.",
+      "threshold": "100% correct below/at/above-threshold classifications in approved boundary tests; log threshold identifier, value, units, operator, and rule version.",
+      "rationale": "Provides reproducible and auditable hazard-condition screening without prescribing hydrologic thresholds before a hazard study.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.3",
+      "type": "req",
+      "name": "Multi-Source Observation Correlation",
+      "statement": "The environmental assessment subsystem shall correlate eligible observations from multiple configured data sources using approved temporal and geographic association rules.",
+      "threshold": "Correctly associate or reject 100% of observations in the approved matched, mismatched, and missing-source test cases; record contributing source IDs and time/location offsets.",
+      "rationale": "Transforms measurement comparisons into actionable condition assessments while leaving category definitions to the hazard concept of operations.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.4",
+      "type": "req",
+      "name": "Hazard Severity and Location Assessment",
+      "statement": "The environmental assessment subsystem shall determine the configured hazard severity category and affected geographic area from the evaluated observations and approved assessment rules.",
+      "threshold": "100% correct severity categories and geographic area assignments in the approved reference scenarios; record severity rule and georeferenced affected-area identifier.",
+      "rationale": "Establishes a traceable F4-to-F5 interface; authorization and actual broadcasting remain governed by F5/F6 requirements.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L3-2.9.2.1",
+      "type": "req",
+      "name": "Threshold Configuration Control",
+      "statement": "The environmental assessment service shall accept warning-rule configuration changes only from authorized operators and retain the active rule version used for each evaluation.",
+      "threshold": "Reject 100% of unauthorized configuration attempts in the approved negative-test suite; each evaluation record references exactly one active rule version.",
+      "rationale": "Protects integrity and repeatability of environmental threshold decisions.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L3-2.9.3.1",
+      "type": "req",
+      "name": "Correlation Evidence Record",
+      "statement": "The environmental assessment service shall record the input observations and association criteria used in each multi-source correlation result.",
+      "threshold": "Each approved correlation record includes source and observation IDs, observation timestamps, geographic references, association rule version, and correlation outcome.",
+      "rationale": "Provides auditable cross-source correlation evidence for decision-makers.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.5",
+      "type": "req",
+      "name": "Alert Necessity Recommendation",
+      "statement": "The environmental assessment subsystem shall recommend whether an alert is warranted based on the approved hazard assessment criteria and shall present the supporting evidence to authorized decision-makers.",
+      "threshold": "For 100% of approved normal, uncertain, and warning-eligible test scenarios, produce the expected recommend / do-not-recommend / insufficient-evidence state and supporting rationale; no automatic authorization.",
+      "rationale": "Derived from F4 Evaluate Conditions: support organizational hazard assessment and informed alert decisions; numerical test-suite acceptance is preliminary.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L2-2.9.6",
+      "type": "req",
+      "name": "Assessment Handoff to Alert Generation",
+      "statement": "The environmental assessment subsystem shall make its completed assessment and recommendation available to authorized decision-makers and the alert-generation function without initiating an alert broadcast.",
+      "threshold": "100% of approved test assessments transferred with matching assessment ID, severity, affected area, source references, timestamp, and recommendation state; receipt logged.",
+      "rationale": "Derived from F4 Evaluate Conditions: support organizational hazard assessment and informed alert decisions; numerical test-suite acceptance is preliminary.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
       ]
     }
   ],
@@ -7083,6 +7222,51 @@
       "parent": "MO-3",
       "child": "L1-3.8",
       "ord": 8
+    },
+    {
+      "parent": "MO-2",
+      "child": "L1-2.9",
+      "ord": 9
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.2",
+      "ord": 2
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.3",
+      "ord": 3
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.4",
+      "ord": 4
+    },
+    {
+      "parent": "L2-2.9.2",
+      "child": "L3-2.9.2.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-2.9.3",
+      "child": "L3-2.9.3.1",
+      "ord": 1
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.5",
+      "ord": 5
+    },
+    {
+      "parent": "L1-2.9",
+      "child": "L2-2.9.6",
+      "ord": 6
     }
   ]
 }
