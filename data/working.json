@@ -5495,6 +5495,246 @@
       "fn": [
         "F4"
       ]
+    },
+    {
+      "id": "L3-2.9.1.1",
+      "type": "req",
+      "name": "Observation Eligibility",
+      "statement": "The assessment service shall determine whether each retrieved observation is eligible for hazard evaluation using the approved source validity and freshness rules.",
+      "threshold": "Classify 100% of approved valid, invalid, missing-timestamp and expired-observation test vectors correctly.",
+      "rationale": "Ensure hazard conclusions use eligible evidence.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L3-2.9.4.1",
+      "type": "req",
+      "name": "Severity and Footprint Computation",
+      "statement": "The assessment service shall compute a hazard severity category and affected-area identifier using the active approved hazard assessment rules.",
+      "threshold": "Match 100% of the expected severity and affected-area outputs in approved reference scenarios.",
+      "rationale": "Make the severity and geography determination reproducible.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L3-2.9.5.1",
+      "type": "req",
+      "name": "Decision Support Recommendation",
+      "statement": "The assessment service shall derive an alert recommendation and evidence summary from the evaluated hazard conditions without authorizing transmission.",
+      "threshold": "Match expected recommend, do-not-recommend, and insufficient-evidence outputs in 100% of approved scenarios.",
+      "rationale": "Keep decision support distinct from alert authorization.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L3-2.9.6.1",
+      "type": "req",
+      "name": "Assessment Transfer Record",
+      "statement": "The assessment service shall transmit a structured assessment record to the authorized review interface and preserve an acknowledgment of receipt.",
+      "threshold": "100% of approved test records are delivered with matching identifiers, content, and receipt log entries.",
+      "rationale": "Provide a testable F4-to-F5 interface.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.1.1.1",
+      "type": "req",
+      "name": "Observation Timestamp Validation",
+      "statement": "The assessment service shall reject an observation from current-condition evaluation when its acquisition timestamp is absent or cannot be interpreted in the configured time reference.",
+      "threshold": "Reject 100% of missing, malformed and unsupported-timestamp test cases.",
+      "rationale": "Prevents untraceable measurements from influencing current assessments.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.1.1.2",
+      "type": "req",
+      "name": "Observation Freshness Check",
+      "statement": "The assessment service shall flag observations whose age exceeds the active source-specific maximum-age rule.",
+      "threshold": "Correctly flag 100% of test observations immediately below, at, and above each configured age limit.",
+      "rationale": "Freshness limits depend on source sampling cadence and hazard model.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.2.1.1",
+      "type": "req",
+      "name": "Authorized Rule Modification",
+      "statement": "The assessment service shall prevent an unauthenticated or unauthorized operator from modifying an active hazard threshold rule.",
+      "threshold": "Reject 100% of unauthorized change attempts in the approved security test suite and retain the original active rule.",
+      "rationale": "Protects evaluation criteria from unauthorized changes.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.2.1.2",
+      "type": "req",
+      "name": "Rule Version Audit",
+      "statement": "The assessment service shall associate each completed threshold evaluation with the unique version identifier of the rule set applied.",
+      "threshold": "100% of approved evaluation records identify the rule version that was active when the evaluation ran.",
+      "rationale": "Allows reproducible threshold comparison.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.3.1.1",
+      "type": "req",
+      "name": "Temporal Correlation Record",
+      "statement": "The assessment service shall record the observation times and time separation for every accepted or rejected temporal association.",
+      "threshold": "100% of approved association records contain both observation timestamps, calculated offset, and applied temporal-window identifier.",
+      "rationale": "Makes cross-source timing comparisons auditable.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.3.1.2",
+      "type": "req",
+      "name": "Geographic Correlation Record",
+      "statement": "The assessment service shall record the georeferenced source locations and geographic-association outcome for each multi-source correlation.",
+      "threshold": "100% of approved correlation records include source location identifiers, applied spatial rule identifier, and association result.",
+      "rationale": "Makes the geographic basis of hazard assessment traceable.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.4.1.1",
+      "type": "req",
+      "name": "Severity Rule Application",
+      "statement": "The assessment service shall assign the hazard severity category specified by the active approved rule set for each evaluated reference scenario.",
+      "threshold": "100% agreement with approved severity labels, including boundary and no-hazard cases.",
+      "rationale": "Avoids inventing unsupported physical flood-stage thresholds.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.4.1.2",
+      "type": "req",
+      "name": "Affected-Area Identification",
+      "statement": "The assessment service shall associate each identified hazard with an approved georeferenced affected-area identifier or an explicit location-unknown state.",
+      "threshold": "100% correct geographic identifiers or location-unknown flags in approved reference scenarios.",
+      "rationale": "Supports geographic targeting without implying unsupported localization accuracy.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.5.1.1",
+      "type": "req",
+      "name": "Insufficient Evidence State",
+      "statement": "The assessment service shall output an insufficient-evidence recommendation when the approved decision rules cannot be evaluated because required observations are missing, invalid or contradictory.",
+      "threshold": "100% correct insufficient-evidence results in approved missing-source and conflicting-source cases.",
+      "rationale": "Prevents unwarranted certainty.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.5.1.2",
+      "type": "req",
+      "name": "Recommendation Evidence Summary",
+      "statement": "The assessment service shall include the applied rule version, contributing observation identifiers, severity category, affected-area identifier, and uncertainty status in each recommendation record.",
+      "threshold": "100% of approved recommendation records contain all mandatory fields, with explicit unavailable markers where data is absent.",
+      "rationale": "Enables an organization to review the evidence.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.6.1.1",
+      "type": "req",
+      "name": "Assessment Identifier Preservation",
+      "statement": "The assessment service shall preserve the originating assessment identifier unchanged when transferring an assessment to the authorized review interface.",
+      "threshold": "100% identifier match between sent and received records in approved interface tests.",
+      "rationale": "Maintains traceability between evaluation and review.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
+    },
+    {
+      "id": "L4-2.9.6.1.2",
+      "type": "req",
+      "name": "Review Interface Receipt Logging",
+      "statement": "The assessment service shall record the delivery result and receipt timestamp for each assessment transfer to the authorized review interface.",
+      "threshold": "100% of approved successful and failed transfer test cases generate a correctly associated status and timestamp record.",
+      "rationale": "Supports monitoring without treating assessment transfer as alert authorization.",
+      "source": "derived",
+      "verification": "T",
+      "segment": "Ground",
+      "status": "draft",
+      "fn": [
+        "F4"
+      ]
     }
   ],
   "links": [
@@ -7267,6 +7507,86 @@
       "parent": "L1-2.9",
       "child": "L2-2.9.6",
       "ord": 6
+    },
+    {
+      "parent": "L2-2.9.1",
+      "child": "L3-2.9.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-2.9.4",
+      "child": "L3-2.9.4.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-2.9.5",
+      "child": "L3-2.9.5.1",
+      "ord": 1
+    },
+    {
+      "parent": "L2-2.9.6",
+      "child": "L3-2.9.6.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.1.1",
+      "child": "L4-2.9.1.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.1.1",
+      "child": "L4-2.9.1.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L3-2.9.2.1",
+      "child": "L4-2.9.2.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.2.1",
+      "child": "L4-2.9.2.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L3-2.9.3.1",
+      "child": "L4-2.9.3.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.3.1",
+      "child": "L4-2.9.3.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L3-2.9.4.1",
+      "child": "L4-2.9.4.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.4.1",
+      "child": "L4-2.9.4.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L3-2.9.5.1",
+      "child": "L4-2.9.5.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.5.1",
+      "child": "L4-2.9.5.1.2",
+      "ord": 2
+    },
+    {
+      "parent": "L3-2.9.6.1",
+      "child": "L4-2.9.6.1.1",
+      "ord": 1
+    },
+    {
+      "parent": "L3-2.9.6.1",
+      "child": "L4-2.9.6.1.2",
+      "ord": 2
     }
   ]
 }
